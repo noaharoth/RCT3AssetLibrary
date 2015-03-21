@@ -4,19 +4,10 @@
 
 #include "stdafx.hpp"
 #include "OvlImage.hpp"
+#include "Vertex.hpp"
 
 namespace RCT3Asset
 {
-
-	struct BGRAColor
-	{
-		unsigned char B;
-		unsigned char G;
-		unsigned char R;
-		unsigned char A;
-
-		BGRAColor() : B(0), G(0), R(0), A(0) { }
-	};
 
 	// FtxImage's use an indexed image format.
 	class FtxImage final : public OvlImage
