@@ -33,4 +33,12 @@ namespace RCT3Asset
 		BGRAColor() : B(0), G(0), R(0), A(0) { }
 	};
 
+	struct U8Color
+	{
+		squish::u8 R;
+		squish::u8 G;
+		squish::u8 B;
+		squish::u8 A;
+	};
+
 }
