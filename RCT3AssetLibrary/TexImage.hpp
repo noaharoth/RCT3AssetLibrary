@@ -4,6 +4,7 @@
 
 #include "stdafx.hpp"
 #include "OvlImage.hpp"
+#include "Vertex.hpp"
 
 namespace RCT3Asset
 {
@@ -25,14 +26,6 @@ namespace RCT3Asset
 			Default = DDS::DXT5,
 			ARGB8 = 0x08
 		};
-	};
-
-	struct U8Color
-	{
-		squish::u8 R;
-		squish::u8 G;
-		squish::u8 B;
-		squish::u8 A;
 	};
 
 	// TexImage's use DXT compression methods for
