@@ -31,14 +31,11 @@ unsigned int OvlPointerTable::Search(unsigned int* ptr, unsigned int& file, File
 void OvlPointerTable::CreatePointerTable(FileSections(&sections)[2], RCT3Debugging::OutputLog& log)
 {
 	unsigned int rawPtrSize = Pointers.size();
-	unsigned int iterations = 0;
 
 	log.Debug("OvlPointerTable::Create(..): Raw pointers count: " + STR(Pointers.size()));
 
 	while (!Pointers.empty())
 	{
-		iterations++;
-
 		unsigned int* ptr = Pointers.front();
 		Pointers.pop();
 
@@ -70,7 +67,6 @@ void OvlPointerTable::CreatePointerTable(FileSections(&sections)[2], RCT3Debuggi
 		}
 	}
 
-	log.Debug("OvlPointerTable::Create(..): Iterations: " + STR(iterations));
 	log.Debug("OvlPointerTable::Create(..): Final pointer count (common): " + STR(PointerTable[COMMON].size()));
 	log.Debug("OvlPointerTable::Create(..): Final pointer count (unique): " + STR(PointerTable[UNIQUE].size()));
 	log.Debug("OvlPointerTable::Create(..): Final pointer count (total): " + STR(PointerTable[COMMON].size() + PointerTable[UNIQUE].size()));
