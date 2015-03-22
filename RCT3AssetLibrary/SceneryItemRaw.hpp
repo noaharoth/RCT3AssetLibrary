@@ -103,19 +103,21 @@ namespace RCT3Asset
 		unsigned int AnrCyclesPerCircuit;
 	};
 
+	// -------- Below are values discovered by Jonwil/Belgabor, and borrowed from their include files. Many thanks for their AWESOME work!! ------- //
+
 	struct SIDPositionType 
 	{
 		enum 
 		{
-			Tile_Full = 0,
-			Path_Edge_Inner = 1,
-			Path_Edge_Outer = 2,
-			Wall = 3,
-			Tile_Quarter = 4,
-			Tile_Half = 5,
-			Path_Center = 6,
-			Corner = 7,
-			Path_Edge_Join = 8
+			Full,
+			PathEdgeInner,
+			PathEdgeOuter,
+			Wall,
+			Quarter,
+			Half,
+			Center,
+			Corner,
+			PathEdgeJoin
 		};
 	};
 

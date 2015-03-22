@@ -80,7 +80,7 @@ SceneryItem::SceneryItem()
 	Unknown13 = 0;
 	Unknown14 = 0;
 
-	PositioningType = SIDPositionType::Tile_Full;
+	PositioningType = SIDPositionType::Full;
 	XSquareCount = 1;
 	ZSquareCount = 1;
 	Size.X = 4.0f;
