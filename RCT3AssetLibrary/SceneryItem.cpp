@@ -86,7 +86,7 @@ SceneryItem::SceneryItem()
 	Size.X = 4.0f;
 	Size.Y = 4.0f;
 	Size.Z = 4.0f;
-	SceneryItemType = SIDType::Scenery_Small;
+	SceneryItemType = SIDType::ScenerySmall;
 }
 
 void SceneryItem::Name(std::string name)
