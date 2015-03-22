@@ -1,4 +1,19 @@
-// StructureCollection.h
+// StructureCollection.hpp
+
+/*
+* (C) Copyright 2015 Noah Roth
+*
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the GNU Lesser General Public License
+* (LGPL) version 2.1 which accompanies this distribution, and is available at
+* http://www.gnu.org/licenses/lgpl-2.1.html
+*
+* This library is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+* Lesser General Public License for more details.
+*
+*/
 
 #pragma once
 
@@ -11,8 +26,8 @@ namespace RCT3Asset
 	template < class TStructure >
 	// * Base class for a StructureCollection.
 	// * StructureCollections should be used even if there is only one
-	//   structure to be added to the OvlFile. The overheard of this is minimal.
-	//   Only add structures to an OvlFile manually if YOU KNOW WHAT YOU'RE DOING.
+	//   structure to be added to the OvlFile. This saves you the hassle
+	//   of having to allocate data entries manually.
 	class StructureCollection
 	{
 	protected:

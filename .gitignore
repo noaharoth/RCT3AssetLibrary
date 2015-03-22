@@ -73,10 +73,6 @@ ipch/
 *.vsp
 *.vspx
 
-# ADDED: Visual Studio project files (only need solution files)
-*.vcxproj
-*.vcxproj.filters
-
 # TFS 2012 Local Workspace
 $tf/
 
