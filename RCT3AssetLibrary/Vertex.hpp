@@ -15,8 +15,6 @@
 *
 */
 
-// TEST FOR DEVELOP BRANCH
-
 #pragma once
 
 #include "stdafx.hpp"
