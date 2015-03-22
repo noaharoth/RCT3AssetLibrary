@@ -84,13 +84,15 @@ void FlicManager::CreateAndAssign(OvlFile& ovl)
 			mip = reinterpret_cast<MipHeader*>(extraData);
 			extraData += sizeof(MipHeader);
 
-			mip->Blocks = _textures[i]->Mips[j].GetImage().Blocks();
-			mip->Pitch = _textures[i]->Mips[j].GetImage().Pitch();
-			mip->Height = _textures[i]->Mips[j].GetImage().Dimension();
-			mip->Width = _textures[i]->Mips[j].GetImage().Dimension();
+			TexImage& image = _textures[i]->Mips[j].GetImage();
 
-			_textures[i]->Mips[j].GetImage().CopyDataTo(extraData);
-			extraData += _textures[i]->Mips[j].GetImage().GetDataSize();
+			mip->Blocks = image.Blocks();
+			mip->Pitch = image.Pitch();
+			mip->Height = image.Dimension();
+			mip->Width = image.Dimension();
+
+			image.CopyDataTo(extraData);
+			extraData += image.GetDataSize();
 		}
 
 		ovl.AddDataInfo(info, COMMON);

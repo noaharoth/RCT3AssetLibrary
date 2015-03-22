@@ -34,6 +34,7 @@ inline unsigned int _local_log2(unsigned int y)
 FlexiTextureFrame::FlexiTextureFrame(FtxImage& image) 
 	: _recolor(RecolorOptions::None), _image(image)
 { 
+
 }
 
 unsigned int FlexiTextureFrame::Recolorability() const
@@ -64,8 +65,10 @@ unsigned int FlexiTextureFrame::Dimension() const
 
 // ----------------------------------------------- //
 
-FlexiTexture::FlexiTexture() : _fps(0), _recolor(RecolorOptions::None) 
+FlexiTexture::FlexiTexture() 
+	: _fps(0), _recolor(RecolorOptions::None) 
 { 
+
 }
 
 std::string FlexiTexture::Name() const
