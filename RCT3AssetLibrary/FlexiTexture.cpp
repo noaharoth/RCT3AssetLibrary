@@ -106,12 +106,6 @@ void FlexiTexture::AddFrame(const FlexiTextureFrame& frame)
 	_frames.push_back(frame);
 }
 
-void FlexiTexture::MakeStillImage()
-{
-	_fps = 0;
-	_frameNumbers.push_back(0);
-}
-
 void FlexiTexture::MakeStillImage(const FlexiTextureFrame& frame)
 {
 	_fps = 0;

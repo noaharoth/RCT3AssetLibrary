@@ -87,8 +87,6 @@ namespace RCT3Asset
 
 		void AddFrame(const FlexiTextureFrame& frame);
 
-		void MakeStillImage(); // DEPRECETATED
-
 		void MakeStillImage(const FlexiTextureFrame& frame);
 
 		unsigned int Recolorability() const;
