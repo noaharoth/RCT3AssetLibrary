@@ -31,7 +31,6 @@ namespace RCT3Asset
 
 	class Reference
 	{
-		friend class DataInfo;
 	private:
 		unsigned int* _location;
 		std::string _nameID;
