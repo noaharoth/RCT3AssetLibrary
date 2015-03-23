@@ -21,8 +21,6 @@
 #include "OvlImage.hpp"
 #include "Vertex.hpp"
 
-// TEST BRANCH COMMIT
-
 namespace RCT3Asset
 {
 
