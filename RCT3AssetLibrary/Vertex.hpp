@@ -31,6 +31,18 @@ namespace RCT3Asset
 		Vector3() : X(0.0f), Y(0.0f), Z(0.0f) { }
 	};
 
+	struct Triangle
+	{
+		unsigned int A;
+		unsigned int B;
+		unsigned int C;
+	};
+
+	struct Matrix4x4
+	{
+		float M[4][4];
+	};
+
 	struct GameColor
 	{
 		unsigned int Color1;
