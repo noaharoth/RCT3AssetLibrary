@@ -37,7 +37,7 @@ namespace RCT3Asset
 		unsigned int Sidedness;
 		unsigned int VertexCount;
 		unsigned int TriangleCount;
-		Vector3* Vertices;
+		Vertex* Vertices;
 		Triangle* Triangles;
 	};
 

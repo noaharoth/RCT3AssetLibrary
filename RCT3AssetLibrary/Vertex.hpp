@@ -31,6 +31,15 @@ namespace RCT3Asset
 		Vector3() : X(0.0f), Y(0.0f), Z(0.0f) { }
 	};
 
+	struct Vertex
+	{
+		Vector3 Position;
+		Vector3 Normal;
+		unsigned int Color;
+		float U;
+		float V;
+	};
+
 	struct Triangle
 	{
 		unsigned int A;
