@@ -335,6 +335,7 @@ void OvlFile::Save(std::string filename)
 		fwrite(OvlExtraData[OvlType::Common][i].Data, OvlExtraData[OvlType::Common][i].Size, 1, commonFile);
 	}
 
+
 	for (unsigned int i = 0; i < OvlExtraData[OvlType::Unique].size(); i++)
 	{
 		fwrite(&OvlExtraData[OvlType::Unique][i].Size, sizeof(unsigned int), 1, uniqueFile);
