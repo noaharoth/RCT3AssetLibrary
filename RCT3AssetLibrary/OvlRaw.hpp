@@ -52,16 +52,6 @@ namespace RCT3Asset
 		unsigned int IsPointer;
 	};
 
-	struct ExtraData
-	{
-		unsigned int Size;
-		unsigned char* Data;
-
-		ExtraData(unsigned int size, void* data) : Size(size), Data((unsigned char*)data) { }
-
-		ExtraData() : Size(0), Data(nullptr) { }
-	};
-
 	struct DataInfoRawData
 	{
 		unsigned int StructureHeaderIndex;
