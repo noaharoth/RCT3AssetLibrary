@@ -57,11 +57,11 @@ namespace RCT3Asset
 
 		DataSection();
 
-		// * Creates and returns DataEntry at the end of the vector.
-		DataEntry& CreateAndAdd(unsigned int size, RCT3Debugging::OutputLog& log);
+		// * Creates and returns DataEntry with specified size at the end of the vector.
+		DataEntry& CreateAndAdd(unsigned int size);
 
-		// * Creates and returns DataEntry at the beginning of the vector.
-		DataEntry& CreateAndInsert(unsigned int size, RCT3Debugging::OutputLog& log);
+		// * Creates and returns DataEntry with specified size at the beginning of the vector.
+		DataEntry& CreateAndInsert(unsigned int size);
 
 	};
 

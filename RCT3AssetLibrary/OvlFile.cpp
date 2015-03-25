@@ -63,7 +63,7 @@ void OvlFile::AddReference(Reference reference, unsigned int file)
 
 DataEntry& OvlFile::CreateEntry(unsigned int file, unsigned int section, unsigned int size)
 {
-	return Sections[file][section].CreateAndAdd(size, _log);
+	return Sections[file][section].CreateAndAdd(size);
 }
 
 RCT3Debugging::OutputLog& OvlFile::GetLog() const
@@ -118,12 +118,12 @@ void OvlFile::_createIdentifierTables()
 {
 	unsigned int size = IdentifierTable.Size(OvlType::Common);
 
-	DataEntry& commonEntry = Sections[OvlType::Common][2].CreateAndInsert(size, _log);
+	DataEntry& commonEntry = Sections[OvlType::Common][2].CreateAndInsert(size);
 	IdentifierTable.AssignEntry(commonEntry, OvlType::Common);
 
 	size = IdentifierTable.Size(OvlType::Unique);
 
-	DataEntry& uniqueEntry = Sections[OvlType::Unique][2].CreateAndInsert(size, _log);
+	DataEntry& uniqueEntry = Sections[OvlType::Unique][2].CreateAndInsert(size);
 	IdentifierTable.AssignEntry(uniqueEntry, OvlType::Unique);
 
 }
@@ -132,12 +132,12 @@ void OvlFile::_createDataInfoTables()
 {
 	unsigned int size = DataInfoTable.Size(OvlType::Common);
 
-	DataEntry& commonEntry = Sections[OvlType::Common][2].CreateAndInsert(size, _log);
+	DataEntry& commonEntry = Sections[OvlType::Common][2].CreateAndInsert(size);
 	DataInfoTable.AssignEntry(commonEntry, OvlType::Common);
 
 	size = DataInfoTable.Size(OvlType::Unique);
 
-	DataEntry& uniqueEntry = Sections[OvlType::Unique][2].CreateAndInsert(size, _log);
+	DataEntry& uniqueEntry = Sections[OvlType::Unique][2].CreateAndInsert(size);
 	DataInfoTable.AssignEntry(uniqueEntry, OvlType::Unique);
 }
 
@@ -147,13 +147,13 @@ void OvlFile::_createReferenceTables()
 
 	if ((size = ReferenceTable.Size(OvlType::Common)) > 0)
 	{
-		DataEntry& commonEntry = Sections[OvlType::Common][2].CreateAndInsert(size, _log);
+		DataEntry& commonEntry = Sections[OvlType::Common][2].CreateAndInsert(size);
 		ReferenceTable.AssignEntry(commonEntry, OvlType::Common);
 	}
 
 	if ((size = ReferenceTable.Size(OvlType::Unique)) > 0)
 	{
-		DataEntry& uniqueEntry = Sections[OvlType::Unique][2].CreateAndInsert(size, _log);
+		DataEntry& uniqueEntry = Sections[OvlType::Unique][2].CreateAndInsert(size);
 		ReferenceTable.AssignEntry(uniqueEntry, OvlType::Unique);
 	}
 }
@@ -168,7 +168,7 @@ void OvlFile::_createPointerTables()
 
 void OvlFile::CreateTables()
 {
-	DataEntry& stringTableEntry = Sections[OvlType::Common][0].CreateAndInsert(StringTable.Size(), _log);
+	DataEntry& stringTableEntry = Sections[OvlType::Common][0].CreateAndInsert(StringTable.Size());
 	StringTable.Create(stringTableEntry, _log);
 
 	_fixStrings();

@@ -60,7 +60,7 @@ DataSection::DataSection()
 	
 }
 
-DataEntry& DataSection::CreateAndAdd(unsigned int size, RCT3Debugging::OutputLog& log)
+DataEntry& DataSection::CreateAndAdd(unsigned int size)
 {
 	DataEntry entry;
 	entry.Size = size;
@@ -72,7 +72,7 @@ DataEntry& DataSection::CreateAndAdd(unsigned int size, RCT3Debugging::OutputLog
 	return Entries.back();
 }
 
-DataEntry& DataSection::CreateAndInsert(unsigned int size, RCT3Debugging::OutputLog& log)
+DataEntry& DataSection::CreateAndInsert(unsigned int size)
 {
 	DataEntry entry;
 	entry.Data = nullptr;
