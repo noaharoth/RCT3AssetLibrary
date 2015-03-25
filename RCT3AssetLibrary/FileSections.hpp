@@ -77,7 +77,8 @@ namespace RCT3Asset
 
 		DataSection& operator[](unsigned int index);
 
-		// * Updates all DataSection and DataEntry offsets. Required before creating PointerTable!
+		// * Updates all DataSection and DataEntry offsets, and returns the last DataSection offset.
+		//   Required before creating PointerTable!
 		unsigned int UpdateOffsets(unsigned int startingOffset, RCT3Debugging::OutputLog& log);
 
 	};
