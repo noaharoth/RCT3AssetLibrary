@@ -34,11 +34,11 @@ namespace RCT3Asset
 	struct GuiSkinItemRawData
 	{
 		unsigned int GsiType;
-		TexPtr Texture;
+		TexRef Texture;
 		IconPosition* PositioningData;
 		unsigned int Unknown;
 	};
 
-	typedef GuiSkinItemRawData* GsiPtr;
+	typedef GuiSkinItemRawData* GsiRef;
 
 }

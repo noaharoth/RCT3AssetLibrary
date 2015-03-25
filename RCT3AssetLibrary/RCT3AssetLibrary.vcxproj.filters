@@ -114,6 +114,9 @@
     <ClInclude Include="FtxImage.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="StaticShapeRaw.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -34,7 +34,7 @@ namespace RCT3Asset
 		// PLACEHOLDER FOR SAKE OF READABILITY (WILL BE RELOCATED)
 	};
 
-	typedef SceneryItemVisualRawData* SvdPtr;
+	typedef SceneryItemVisualRawData* SvdRef;
 
 	struct ParameterRawData
 	{
@@ -71,16 +71,16 @@ namespace RCT3Asset
 		unsigned int SceneryItemType;
 		OvlString Supports;
 		unsigned int SvdCount;
-		SvdPtr* Svds;
-		GsiPtr GsiIcon;
-		GsiPtr GsiGroupIcon;
-		TxtPtr TxtGroupName;
+		SvdRef* Svds;
+		GsiRef GsiIcon;
+		GsiRef GsiGroupIcon;
+		TxtRef TxtGroupName;
 		OvlString OvlPath;
 		unsigned int ParameterCount;
 		ParameterRawData* Parameters;
 		unsigned int SoundCount;
 		void* Sounds;
-		TxtPtr TxtName;
+		TxtRef TxtName;
 		unsigned int Unknown04;
 		unsigned int Unknown05;
 		unsigned int StallUnknown01;

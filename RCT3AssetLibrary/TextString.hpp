@@ -24,7 +24,7 @@
 namespace RCT3Asset
 {
 	typedef wchar_t TextStringRawData;
-	typedef wchar_t* TxtPtr;
+	typedef wchar_t* TxtRef;
 
 	class TextString
 	{

@@ -62,8 +62,8 @@ namespace RCT3Asset
 	{
 		unsigned int Flags;
 		OvlString Name;
-		TxtPtr Text;
-		GsiPtr Icon;
+		TxtRef Text;
+		GsiRef Icon;
 		OvlString TextureA;
 		OvlString TextureB;
 		PathSectionRawData Flat;
@@ -93,8 +93,8 @@ namespace RCT3Asset
 	{
 		unsigned int Flags;
 		OvlString Name;
-		TxtPtr Text;
-		GsiPtr Icon;
+		TxtRef Text;
+		GsiRef Icon;
 		OvlString TextureA;
 		OvlString TextureB;
 		PathSectionRawData Flat;

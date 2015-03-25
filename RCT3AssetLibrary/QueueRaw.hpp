@@ -30,9 +30,9 @@ namespace RCT3Asset
 	struct QueueRawData
 	{
 		OvlString Name;
-		TxtPtr Text;
-		GsiPtr Icon;
-		FtxPtr Texture;
+		TxtRef Text;
+		GsiRef Icon;
+		FtxRef Texture;
 		OvlString Straight;
 		OvlString TurnL;
 		OvlString TurnR;

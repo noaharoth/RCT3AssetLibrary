@@ -109,7 +109,7 @@ unsigned int SceneryItem::GetDataSize(unsigned int file)
 	if (file == OvlType::Unique)
 	{
 		unsigned int size = sizeof(SceneryItemRawData);
-		size += Svds.size() * sizeof(SvdPtr);
+		size += Svds.size() * sizeof(SvdRef);
 		return size;
 	}
 
@@ -184,9 +184,9 @@ void SceneryItem::CopyDataTo(OvlFile& ovl, unsigned char* unique, unsigned char*
 	}
 
 	sid->SvdCount = Svds.size();
-	sid->Svds = reinterpret_cast<SvdPtr*>(unique);
+	sid->Svds = reinterpret_cast<SvdRef*>(unique);
 	ovl.AddPointer(Ptr(sid->Svds));
-	unique += Svds.size() * sizeof(SvdPtr);
+	unique += Svds.size() * sizeof(SvdRef);
 
 	for (int i = 0; i < Svds.size(); i++)
 	{

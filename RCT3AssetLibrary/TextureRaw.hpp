@@ -44,7 +44,7 @@ namespace RCT3Asset
 		TexFlicPtrRawData* TexFlicPtr;
 	};
 
-	typedef TextureInfoData* TexPtr;
+	typedef TextureInfoData* TexRef;
 
 	struct TexFlicPtrRawData
 	{

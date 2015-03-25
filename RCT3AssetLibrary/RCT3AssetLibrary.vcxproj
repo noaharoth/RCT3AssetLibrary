@@ -115,6 +115,7 @@
     <ClInclude Include="QueueRaw.hpp" />
     <ClInclude Include="SceneryItem.hpp" />
     <ClInclude Include="SceneryItemRaw.hpp" />
+    <ClInclude Include="StaticShapeRaw.hpp" />
     <ClInclude Include="stdafx.hpp" />
     <ClInclude Include="StructRef.hpp" />
     <ClInclude Include="StructureCollection.hpp" />

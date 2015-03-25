@@ -47,4 +47,5 @@ namespace RCT3Asset
 		static const TextureStyle GUIIcon;
 	};
 
+	typedef char* TxsRef;
 }

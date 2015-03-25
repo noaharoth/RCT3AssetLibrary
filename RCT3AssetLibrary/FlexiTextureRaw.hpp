@@ -52,5 +52,5 @@ namespace RCT3Asset
 		FlexiTextureFrameRawData* Frames;
 	};
 
-	typedef FlexiTextureRawData* FtxPtr;
+	typedef FlexiTextureRawData* FtxRef;
 }
