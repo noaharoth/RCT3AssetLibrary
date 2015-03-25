@@ -106,7 +106,7 @@ std::string SceneryItem::GetNameID() const
 
 unsigned int SceneryItem::GetDataSize(unsigned int file)
 {
-	if (file == UNIQUE)
+	if (file == OvlType::Unique)
 	{
 		unsigned int size = sizeof(SceneryItemRawData);
 		size += Svds.size() * sizeof(SvdPtr);
@@ -172,7 +172,7 @@ void SceneryItem::CopyDataTo(OvlFile& ovl, unsigned char* unique, unsigned char*
 		Reference gsiIconGroupRef(&sid->GsiGroupIcon, GsiGroupIcon.NameID());
 		ovl.AddString(GsiGroupIcon.NameID(), nullptr);
 		gsiIconGroupRef.AssignOwner(info);
-		ovl.AddReference(gsiIconGroupRef, UNIQUE);
+		ovl.AddReference(gsiIconGroupRef, OvlType::Unique);
 	}
 
 	if (TxtGroupName.NameID().length())
@@ -180,7 +180,7 @@ void SceneryItem::CopyDataTo(OvlFile& ovl, unsigned char* unique, unsigned char*
 		Reference txtNameGroupRef(&sid->TxtGroupName, TxtGroupName.NameID());
 		ovl.AddString(TxtGroupName.NameID(), nullptr);
 		txtNameGroupRef.AssignOwner(info);
-		ovl.AddReference(txtNameGroupRef, UNIQUE);
+		ovl.AddReference(txtNameGroupRef, OvlType::Unique);
 	}
 
 	sid->SvdCount = Svds.size();
@@ -193,7 +193,7 @@ void SceneryItem::CopyDataTo(OvlFile& ovl, unsigned char* unique, unsigned char*
 		Reference svdRef(&sid->Svds[i], Svds[i].NameID());
 		ovl.AddString(Svds[i].NameID(), nullptr);
 		svdRef.AssignOwner(info);
-		ovl.AddReference(svdRef, UNIQUE);
+		ovl.AddReference(svdRef, OvlType::Unique);
 	}
 
 	sid->Unknown01 = Unknown01;
@@ -288,10 +288,10 @@ void SceneryItem::CopyDataTo(OvlFile& ovl, unsigned char* unique, unsigned char*
 		}
 	}
 
-	ovl.AddIdentifier(id, UNIQUE);
-	ovl.AddDataInfo(info, UNIQUE);
-	ovl.AddReference(txtNameRef, UNIQUE);
-	ovl.AddReference(gsiIconRef, UNIQUE);
+	ovl.AddIdentifier(id, OvlType::Unique);
+	ovl.AddDataInfo(info, OvlType::Unique);
+	ovl.AddReference(txtNameRef, OvlType::Unique);
+	ovl.AddReference(gsiIconRef, OvlType::Unique);
 
 	ovl.GetLog().Info("SceneryItem::CopyDataTo(..): Created SceneryItem \"" + _name + "\"");
 }
@@ -299,7 +299,7 @@ void SceneryItem::CopyDataTo(OvlFile& ovl, unsigned char* unique, unsigned char*
 StructureHeader SceneryItem::GetHeader()
 {
 	StructureHeader h;
-	h.LoaderType = RCT3LOADER;
+	h.LoaderType = OvlLoaderType::RCT3;
 	h.StructName = "SceneryItem";
 	h.StructID = "sid";
 	h.TypeNumber = 1;
@@ -314,12 +314,12 @@ void SceneryItemCollection::AddTo(OvlFile& ovl)
 
 	for (auto s : _structs)
 	{
-		uniqueSize += s->GetDataSize(UNIQUE);
-		commonSize += s->GetDataSize(COMMON);
+		uniqueSize += s->GetDataSize(OvlType::Unique);
+		commonSize += s->GetDataSize(OvlType::Common);
 	}
 
-	DataEntry& uniqueEntry = ovl.CreateEntry(UNIQUE, 2, uniqueSize);
-	DataEntry& commonEntry = ovl.CreateEntry(COMMON, 2, commonSize);
+	DataEntry& uniqueEntry = ovl.CreateEntry(OvlType::Unique, 2, uniqueSize);
+	DataEntry& commonEntry = ovl.CreateEntry(OvlType::Common, 2, commonSize);
 
 	unsigned char* uniqueData = uniqueEntry.Data;
 	unsigned char* commonData = commonEntry.Data;
@@ -327,7 +327,7 @@ void SceneryItemCollection::AddTo(OvlFile& ovl)
 	for (auto s : _structs)
 	{
 		s->CopyDataTo(ovl, uniqueData, commonData, headerIndex);
-		uniqueData += s->GetDataSize(UNIQUE);
-		commonData += s->GetDataSize(COMMON);
+		uniqueData += s->GetDataSize(OvlType::Unique);
+		commonData += s->GetDataSize(OvlType::Common);
 	}
 }

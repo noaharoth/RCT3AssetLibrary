@@ -183,7 +183,7 @@ void FlexiTexture::CopyDataTo(OvlFile& ovl, void* raw, unsigned int headerIndex)
 
 		// texture has own dataentry
 
-		DataEntry& textureEntry = ovl.CreateEntry(COMMON, 0, _frames[i].GetImage().GetIndexedDataSize());
+		DataEntry& textureEntry = ovl.CreateEntry(OvlType::Common, 0, _frames[i].GetImage().GetIndexedDataSize());
 		frames[i].TextureData = textureEntry.Data;
 		ovl.AddPointer(Ptr(frames[i].TextureData));
 
@@ -191,7 +191,7 @@ void FlexiTexture::CopyDataTo(OvlFile& ovl, void* raw, unsigned int headerIndex)
 
 		if (_frames[i].GetImage().HasAlpha())
 		{
-			DataEntry& alphaEntry = ovl.CreateEntry(COMMON, 0, _frames[i].GetImage().GetAlphaDataSize());
+			DataEntry& alphaEntry = ovl.CreateEntry(OvlType::Common, 0, _frames[i].GetImage().GetAlphaDataSize());
 			frames[i].AlphaData = alphaEntry.Data;
 			ovl.AddPointer(Ptr(frames[i].AlphaData));
 
@@ -211,8 +211,8 @@ void FlexiTexture::CopyDataTo(OvlFile& ovl, void* raw, unsigned int headerIndex)
 
 	DataInfo info(headerIndex, ftx, id, 0);
 
-	ovl.AddIdentifier(id, COMMON);
-	ovl.AddDataInfo(info, COMMON);
+	ovl.AddIdentifier(id, OvlType::Common);
+	ovl.AddDataInfo(info, OvlType::Common);
 
 	ovl.GetLog().Info("FlexiTexture::CopyDataTo(..): Created FlexiTexture \"" + _name + "\"");
 }
@@ -220,7 +220,7 @@ void FlexiTexture::CopyDataTo(OvlFile& ovl, void* raw, unsigned int headerIndex)
 StructureHeader FlexiTexture::GetHeader()
 {
 	StructureHeader h;
-	h.LoaderType = FDGKLOADER;
+	h.LoaderType = OvlLoaderType::FDGK;
 	h.StructID = "ftx";
 	h.StructName = "FlexiTexture";
 	h.TypeNumber = 1;
@@ -235,15 +235,15 @@ void FlexiTextureCollection::AddTo(OvlFile& ovl)
 
 	for (auto f : _structs)
 	{
-		entrySize += f->GetDataSize(COMMON);
+		entrySize += f->GetDataSize(OvlType::Common);
 	}
 
-	DataEntry& entry = ovl.CreateEntry(COMMON, 2, entrySize);
+	DataEntry& entry = ovl.CreateEntry(OvlType::Common, 2, entrySize);
 	unsigned char* raw = entry.Data;
 
 	for (auto f : _structs)
 	{
 		f->CopyDataTo(ovl, raw, headerIndex);
-		raw += f->GetDataSize(COMMON);
+		raw += f->GetDataSize(OvlType::Common);
 	}
 }

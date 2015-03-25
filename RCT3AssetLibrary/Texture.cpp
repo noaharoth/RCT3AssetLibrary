@@ -165,9 +165,9 @@ void Texture::CopyDataTo(OvlFile& ovl, TextureRawData* data, unsigned int header
 	Reference txsRef(&data->TexInfo.TxsRef, TxsStyle.GetNameID());
 	txsRef.AssignOwner(info);
 
-	ovl.AddIdentifier(id, UNIQUE);
-	ovl.AddDataInfo(info, UNIQUE);
-	ovl.AddReference(txsRef, UNIQUE);
+	ovl.AddIdentifier(id, OvlType::Unique);
+	ovl.AddDataInfo(info, OvlType::Unique);
+	ovl.AddReference(txsRef, OvlType::Unique);
 
 	ovl.GetLog().Info("Texture::CopyDataTo(..): Created texture \"" + _name + "\"");
 }
@@ -175,7 +175,7 @@ void Texture::CopyDataTo(OvlFile& ovl, TextureRawData* data, unsigned int header
 StructureHeader Texture::GetHeader()
 {
 	StructureHeader h;
-	h.LoaderType = FDGKLOADER;
+	h.LoaderType = OvlLoaderType::FDGK;
 	h.StructID = "tex";
 	h.StructName = "Texture";
 	h.TypeNumber = 2;
@@ -190,7 +190,7 @@ void TextureCollection::AddTo(OvlFile& ovl)
 
 	ovl.GetLog().Debug("TEX entry size = " + STR(size));
 
-	DataEntry& entry = ovl.CreateEntry(UNIQUE, 2, size);
+	DataEntry& entry = ovl.CreateEntry(OvlType::Unique, 2, size);
 
 	TextureRawData* raw = (TextureRawData*)entry.Data;
 

@@ -116,59 +116,59 @@ void OvlFile::_fixStrings()
 
 void OvlFile::_createIdentifierTables()
 {
-	unsigned int size = IdentifierTable.Size(COMMON);
+	unsigned int size = IdentifierTable.Size(OvlType::Common);
 
-	DataEntry& commonEntry = Sections[COMMON][2].CreateAndInsert(size, _log);
-	IdentifierTable.AssignEntry(commonEntry, COMMON);
+	DataEntry& commonEntry = Sections[OvlType::Common][2].CreateAndInsert(size, _log);
+	IdentifierTable.AssignEntry(commonEntry, OvlType::Common);
 
-	size = IdentifierTable.Size(UNIQUE);
+	size = IdentifierTable.Size(OvlType::Unique);
 
-	DataEntry& uniqueEntry = Sections[UNIQUE][2].CreateAndInsert(size, _log);
-	IdentifierTable.AssignEntry(uniqueEntry, UNIQUE);
+	DataEntry& uniqueEntry = Sections[OvlType::Unique][2].CreateAndInsert(size, _log);
+	IdentifierTable.AssignEntry(uniqueEntry, OvlType::Unique);
 
 }
 
 void OvlFile::_createDataInfoTables()
 {
-	unsigned int size = DataInfoTable.Size(COMMON);
+	unsigned int size = DataInfoTable.Size(OvlType::Common);
 
-	DataEntry& commonEntry = Sections[COMMON][2].CreateAndInsert(size, _log);
-	DataInfoTable.AssignEntry(commonEntry, COMMON);
+	DataEntry& commonEntry = Sections[OvlType::Common][2].CreateAndInsert(size, _log);
+	DataInfoTable.AssignEntry(commonEntry, OvlType::Common);
 
-	size = DataInfoTable.Size(UNIQUE);
+	size = DataInfoTable.Size(OvlType::Unique);
 
-	DataEntry& uniqueEntry = Sections[UNIQUE][2].CreateAndInsert(size, _log);
-	DataInfoTable.AssignEntry(uniqueEntry, UNIQUE);
+	DataEntry& uniqueEntry = Sections[OvlType::Unique][2].CreateAndInsert(size, _log);
+	DataInfoTable.AssignEntry(uniqueEntry, OvlType::Unique);
 }
 
 void OvlFile::_createReferenceTables()
 {
 	unsigned int size;
 
-	if ((size = ReferenceTable.Size(COMMON)) > 0)
+	if ((size = ReferenceTable.Size(OvlType::Common)) > 0)
 	{
-		DataEntry& commonEntry = Sections[COMMON][2].CreateAndInsert(size, _log);
-		ReferenceTable.AssignEntry(commonEntry, COMMON);
+		DataEntry& commonEntry = Sections[OvlType::Common][2].CreateAndInsert(size, _log);
+		ReferenceTable.AssignEntry(commonEntry, OvlType::Common);
 	}
 
-	if ((size = ReferenceTable.Size(UNIQUE)) > 0)
+	if ((size = ReferenceTable.Size(OvlType::Unique)) > 0)
 	{
-		DataEntry& uniqueEntry = Sections[UNIQUE][2].CreateAndInsert(size, _log);
-		ReferenceTable.AssignEntry(uniqueEntry, UNIQUE);
+		DataEntry& uniqueEntry = Sections[OvlType::Unique][2].CreateAndInsert(size, _log);
+		ReferenceTable.AssignEntry(uniqueEntry, OvlType::Unique);
 	}
 }
 
 void OvlFile::_createPointerTables()
 {
-	unsigned int commonOffset = Sections[COMMON].UpdateOffsets(0, _log);
-	Sections[UNIQUE].UpdateOffsets(commonOffset, _log);
+	unsigned int commonOffset = Sections[OvlType::Common].UpdateOffsets(0, _log);
+	Sections[OvlType::Unique].UpdateOffsets(commonOffset, _log);
 
 	PointerTable.CreatePointerTable(Sections, _log);
 }
 
 void OvlFile::CreateTables()
 {
-	DataEntry& stringTableEntry = Sections[COMMON][0].CreateAndInsert(StringTable.Size(), _log);
+	DataEntry& stringTableEntry = Sections[OvlType::Common][0].CreateAndInsert(StringTable.Size(), _log);
 	StringTable.Create(stringTableEntry, _log);
 
 	_fixStrings();
@@ -273,17 +273,17 @@ void OvlFile::Save(std::string filename)
 
 	for (unsigned int i = 0; i < 9; i++)
 	{
-		unsigned int count = Sections[COMMON][i].Entries.size();
+		unsigned int count = Sections[OvlType::Common][i].Entries.size();
 		fwrite(&count, sizeof(count), 1, commonFile);
-		count = Sections[UNIQUE][i].Entries.size();
+		count = Sections[OvlType::Unique][i].Entries.size();
 		fwrite(&count, sizeof(count), 1, uniqueFile);
 	}
 
 	for (unsigned int i = 0; i < 9; i++)
 	{
-		for (unsigned int j = 0; j < Sections[COMMON][i].Entries.size(); j++)
+		for (unsigned int j = 0; j < Sections[OvlType::Common][i].Entries.size(); j++)
 		{
-			unsigned int size = Sections[COMMON][i].Entries[j].Size;
+			unsigned int size = Sections[OvlType::Common][i].Entries[j].Size;
 
 			_log.Debug("OvlFile::Save(..): File COMMON, Section " + STR(i) + ", Entry " + STR(j) + ": Size = " + STR(size)
 				+ ", File IO Offset = " + STR((int)ftell(commonFile)));
@@ -291,15 +291,15 @@ void OvlFile::Save(std::string filename)
 			fwrite(&size, sizeof(size), 1, commonFile);
 
 			if (size)
-				fwrite(Sections[COMMON][i].Entries[j].Data, size, 1, commonFile);
+				fwrite(Sections[OvlType::Common][i].Entries[j].Data, size, 1, commonFile);
 		}
 	}
 
 	for (unsigned int i = 0; i < 9; i++)
 	{
-		for (unsigned int j = 0; j < Sections[UNIQUE][i].Entries.size(); j++)
+		for (unsigned int j = 0; j < Sections[OvlType::Unique][i].Entries.size(); j++)
 		{
-			unsigned int size = Sections[UNIQUE][i].Entries[j].Size;
+			unsigned int size = Sections[OvlType::Unique][i].Entries[j].Size;
 
 			_log.Debug("OvlFile::Save(..): File UNIQUE, Section " + STR(i) + ", Entry " + STR(j) + ": Size = " + STR(size)
 				+ ", File IO Offset = " + STR((int)ftell(uniqueFile)));
@@ -307,30 +307,38 @@ void OvlFile::Save(std::string filename)
 			fwrite(&size, sizeof(size), 1, uniqueFile);
 
 			if (size)
-				fwrite(Sections[UNIQUE][i].Entries[j].Data, size, 1, uniqueFile);
+				fwrite(Sections[OvlType::Unique][i].Entries[j].Data, size, 1, uniqueFile);
 		}
 	}
 
-	unsigned int pointerTableSize = PointerTable.PointerTable[COMMON].size();
+	unsigned int pointerTableSize = PointerTable.PointerTable[OvlType::Common].size();
 	fwrite(&pointerTableSize, sizeof(pointerTableSize), 1, commonFile);
 	for (unsigned int i = 0; i < pointerTableSize; i++)
 	{
-		unsigned int pointer = PointerTable.PointerTable[COMMON][i];
+		unsigned int pointer = PointerTable.PointerTable[OvlType::Common][i];
 		fwrite(&pointer, sizeof(pointer), 1, commonFile);
+	}
+
+	pointerTableSize = PointerTable.PointerTable[OvlType::Unique].size();
+	fwrite(&pointerTableSize, sizeof(pointerTableSize), 1, uniqueFile);
+	for (unsigned int i = 0; i < pointerTableSize; i++)
+	{
+		unsigned int pointer = PointerTable.PointerTable[OvlType::Unique][i];
+		fwrite(&pointer, sizeof(pointer), 1, uniqueFile);
 	}
 
 	// Extra data
 
-	for (unsigned int i = 0; i < OvlExtraData[COMMON].size(); i++)
+	for (unsigned int i = 0; i < OvlExtraData[OvlType::Common].size(); i++)
 	{
-		fwrite(&OvlExtraData[COMMON][i].Size, sizeof(unsigned int), 1, commonFile);
-		fwrite(OvlExtraData[COMMON][i].Data, OvlExtraData[COMMON][i].Size, 1, commonFile);
+		fwrite(&OvlExtraData[OvlType::Common][i].Size, sizeof(unsigned int), 1, commonFile);
+		fwrite(OvlExtraData[OvlType::Common][i].Data, OvlExtraData[OvlType::Common][i].Size, 1, commonFile);
 	}
 
-	for (unsigned int i = 0; i < OvlExtraData[UNIQUE].size(); i++)
+	for (unsigned int i = 0; i < OvlExtraData[OvlType::Unique].size(); i++)
 	{
-		fwrite(&OvlExtraData[UNIQUE][i].Size, sizeof(unsigned int), 1, uniqueFile);
-		fwrite(OvlExtraData[UNIQUE][i].Data, OvlExtraData[UNIQUE][i].Size, 1, uniqueFile);
+		fwrite(&OvlExtraData[OvlType::Unique][i].Size, sizeof(unsigned int), 1, uniqueFile);
+		fwrite(OvlExtraData[OvlType::Unique][i].Data, OvlExtraData[OvlType::Unique][i].Size, 1, uniqueFile);
 	}
 
 	// Done!

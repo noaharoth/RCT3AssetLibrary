@@ -34,7 +34,7 @@ void FlicManager::CreateAndAssign(OvlFile& ovl)
 {
 	unsigned int headerIndex = ovl.AddStructureHeader(GetHeader());
 
-	DataEntry& entry = ovl.CreateEntry(COMMON, 2, GetDataSize());
+	DataEntry& entry = ovl.CreateEntry(OvlType::Common, 2, GetDataSize());
 
 	FlicRawData* raw = reinterpret_cast<FlicRawData*>(entry.Data);
 
@@ -62,7 +62,7 @@ void FlicManager::CreateAndAssign(OvlFile& ovl)
 		// extra data
 
 		unsigned int extraDataSize = sizeof(FlicHeader) + _textures[i]->MipDataSize() + _textures[i]->ImageDataSize();
-		ExtraData extra = ovl.CreateAndAddExtraData(extraDataSize, COMMON);
+		ExtraData extra = ovl.CreateAndAddExtraData(extraDataSize, OvlType::Common);
 
 		info.ExtraData.push_back(extra);
 
@@ -95,7 +95,7 @@ void FlicManager::CreateAndAssign(OvlFile& ovl)
 			extraData += image.GetDataSize();
 		}
 
-		ovl.AddDataInfo(info, COMMON);
+		ovl.AddDataInfo(info, OvlType::Common);
 
 		ovl.GetLog().Info("FlicManager::CreateAndAssign(..): Created & assigned Flic data.");
 	}
@@ -104,7 +104,7 @@ void FlicManager::CreateAndAssign(OvlFile& ovl)
 StructureHeader FlicManager::GetHeader()
 {
 	StructureHeader h;
-	h.LoaderType = FDGKLOADER;
+	h.LoaderType = OvlLoaderType::FDGK;
 	h.StructName = "Flic";
 	h.StructID = "flic";
 	h.TypeNumber = 2;

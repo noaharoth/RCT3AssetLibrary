@@ -157,10 +157,10 @@ void Path::CopyDataTo(OvlFile& ovl, void* raw, unsigned int headerIndex)
 		gsiRef.AssignOwner(info);
 		ovl.AddString(gsiRef.NameID(), nullptr);
 
-		ovl.AddIdentifier(id, UNIQUE);
-		ovl.AddDataInfo(info, UNIQUE);
-		ovl.AddReference(txtRef, UNIQUE);
-		ovl.AddReference(gsiRef, UNIQUE);
+		ovl.AddIdentifier(id, OvlType::Unique);
+		ovl.AddDataInfo(info, OvlType::Unique);
+		ovl.AddReference(txtRef, OvlType::Unique);
+		ovl.AddReference(gsiRef, OvlType::Unique);
 	}
 	else
 	{
@@ -209,10 +209,10 @@ void Path::CopyDataTo(OvlFile& ovl, void* raw, unsigned int headerIndex)
 		gsiRef.AssignOwner(info);
 		ovl.AddString(gsiRef.NameID(), nullptr);
 
-		ovl.AddIdentifier(id, UNIQUE);
-		ovl.AddDataInfo(info, UNIQUE);
-		ovl.AddReference(txtRef, UNIQUE);
-		ovl.AddReference(gsiRef, UNIQUE);
+		ovl.AddIdentifier(id, OvlType::Unique);
+		ovl.AddDataInfo(info, OvlType::Unique);
+		ovl.AddReference(txtRef, OvlType::Unique);
+		ovl.AddReference(gsiRef, OvlType::Unique);
 	}
 
 	ovl.GetLog().Info("Path::CopyDataTo(..): Created path \"" + _name + "\"");
@@ -221,7 +221,7 @@ void Path::CopyDataTo(OvlFile& ovl, void* raw, unsigned int headerIndex)
 StructureHeader Path::GetHeader()
 {
 	StructureHeader h;
-	h.LoaderType = RCT3LOADER;
+	h.LoaderType = OvlLoaderType::RCT3;
 	h.StructID = "ptd";
 	h.TypeNumber = 1;
 	h.StructName = "PathType";
@@ -257,10 +257,10 @@ void PathCollection::AddTo(OvlFile& ovl)
 
 	for (auto p : _structs)
 	{
-		size += p->DataSize(UNIQUE);
+		size += p->DataSize(OvlType::Unique);
 	}
 
-	DataEntry& entry = ovl.CreateEntry(UNIQUE, 2, size);
+	DataEntry& entry = ovl.CreateEntry(OvlType::Unique, 2, size);
 
 	unsigned char* data = entry.Data;
 
@@ -268,7 +268,7 @@ void PathCollection::AddTo(OvlFile& ovl)
 	{
 
 		p->CopyDataTo(ovl, data, headerIndex);
-		data += p->DataSize(UNIQUE);
+		data += p->DataSize(OvlType::Unique);
 
 	}
 

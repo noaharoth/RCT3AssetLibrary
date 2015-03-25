@@ -84,11 +84,11 @@ void Queue::CopyDataTo(OvlFile& ovl, QueueRawData* queue, unsigned int headerInd
 	gsiRef.AssignOwner(info);
 	ftxRef.AssignOwner(info);
 
-	ovl.AddIdentifier(id, UNIQUE);
-	ovl.AddDataInfo(info, UNIQUE);
-	ovl.AddReference(txtRef, UNIQUE);
-	ovl.AddReference(gsiRef, UNIQUE);
-	ovl.AddReference(ftxRef, UNIQUE);
+	ovl.AddIdentifier(id, OvlType::Unique);
+	ovl.AddDataInfo(info, OvlType::Unique);
+	ovl.AddReference(txtRef, OvlType::Unique);
+	ovl.AddReference(gsiRef, OvlType::Unique);
+	ovl.AddReference(ftxRef, OvlType::Unique);
 
 	ovl.GetLog().Info("Queue::CopyDataTo(..): Created queue \"" + _name + "\"");
 }
@@ -98,7 +98,7 @@ StructureHeader Queue::GetHeader()
 	StructureHeader h;
 	h.StructName = "QueueType";
 	h.StructID = "qtd";
-	h.LoaderType = RCT3LOADER;
+	h.LoaderType = OvlLoaderType::RCT3;
 	h.TypeNumber = 1;
 	return h;
 }
@@ -111,10 +111,10 @@ void QueueCollection::AddTo(OvlFile& ovl)
 
 	for (auto p : _structs)
 	{
-		size += p->DataSize(UNIQUE);
+		size += p->DataSize(OvlType::Unique);
 	}
 
-	DataEntry& entry = ovl.CreateEntry(UNIQUE, 2, size);
+	DataEntry& entry = ovl.CreateEntry(OvlType::Unique, 2, size);
 
 	QueueRawData* data = reinterpret_cast<QueueRawData*>(entry.Data);
 

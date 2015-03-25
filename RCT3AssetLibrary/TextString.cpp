@@ -74,10 +74,10 @@ void TextString::CopyDataTo(OvlFile& ovl, TextStringRawData* data, unsigned int 
 	Identifier id(nameID);
 	ovl.AddString(nameID, nullptr);
 	id.AssignData(data);
-	ovl.AddIdentifier(id, COMMON);
+	ovl.AddIdentifier(id, OvlType::Common);
 
 	DataInfo info(headerIndex, data, id, 0);
-	ovl.AddDataInfo(info, COMMON);
+	ovl.AddDataInfo(info, OvlType::Common);
 
 	ovl.GetLog().Info("TextString::CopyDataTo(..): Created TextString \"" + _name + "\"");
 }
@@ -85,7 +85,7 @@ void TextString::CopyDataTo(OvlFile& ovl, TextStringRawData* data, unsigned int 
 StructureHeader TextString::GetHeader()
 {
 	StructureHeader txtHeader;
-	txtHeader.LoaderType = FDGKLOADER;
+	txtHeader.LoaderType = OvlLoaderType::FDGK;
 	txtHeader.TypeNumber = 2;
 	txtHeader.StructID = "txt";
 	txtHeader.StructName = "Text";
@@ -102,10 +102,10 @@ void TextStringCollection::AddTo(OvlFile& ovl)
 
 	for (auto t : _structs)
 	{
-		entrySize += t->DataSize(COMMON);
+		entrySize += t->DataSize(OvlType::Common);
 	}
 
-	DataEntry& entry = ovl.CreateEntry(COMMON, 2, entrySize);
+	DataEntry& entry = ovl.CreateEntry(OvlType::Common, 2, entrySize);
 	TextStringRawData* raw = reinterpret_cast<TextStringRawData*>(entry.Data);
 
 	for (auto t : _structs)

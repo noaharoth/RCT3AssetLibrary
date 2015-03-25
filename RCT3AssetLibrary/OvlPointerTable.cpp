@@ -82,10 +82,15 @@ void OvlPointerTable::CreatePointerTable(FileSections(&sections)[2], RCT3Debuggi
 		}
 	}
 
-	log.Debug("OvlPointerTable::Create(..): Final pointer count (common): " + STR(PointerTable[COMMON].size()));
-	log.Debug("OvlPointerTable::Create(..): Final pointer count (unique): " + STR(PointerTable[UNIQUE].size()));
-	log.Debug("OvlPointerTable::Create(..): Final pointer count (total): " + STR(PointerTable[COMMON].size() + PointerTable[UNIQUE].size()));
-	log.Debug("OvlPointerTable::Create(..): Missing pointer count: " + STR(rawPtrSize - (PointerTable[UNIQUE].size() + PointerTable[COMMON].size())));
+	log.Debug("OvlPointerTable::Create(..): Final pointer count (common): " + STR(PointerTable[OvlType::Common].size()));
+
+	log.Debug("OvlPointerTable::Create(..): Final pointer count (unique): " + STR(PointerTable[OvlType::Unique].size()));
+
+	log.Debug("OvlPointerTable::Create(..): Final pointer count (total): " 
+		+ STR(PointerTable[OvlType::Common].size() + PointerTable[OvlType::Unique].size()));
+
+	log.Debug("OvlPointerTable::Create(..): Missing pointer count: " + 
+		STR(rawPtrSize - (PointerTable[OvlType::Unique].size() + PointerTable[OvlType::Common].size())));
 
 	log.Debug("OvlPointerTable::Create(..): created pointer tables!");
 }

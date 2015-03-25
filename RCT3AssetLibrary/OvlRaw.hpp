@@ -21,10 +21,6 @@
 
 #define OVL_SIGNATURE 0x4B524746
 #define OVL_VERSION 1
-#define FDGKLOADER 0x4B444746
-#define RCT3LOADER 0x33544352
-#define COMMON 0
-#define UNIQUE 1
 
 #define STR(val) std::to_string((val))
 
@@ -32,6 +28,24 @@ namespace RCT3Asset
 {
 
 	typedef char* OvlString;
+
+	struct OvlLoaderType
+	{
+		enum // Not making this a strongly-typed enum (enum class) because having to cast to unsigned ints will be annoying
+		{
+			FDGK = 0x4B444746,
+			RCT3 = 0x33544352
+		};
+	};
+
+	struct OvlType
+	{
+		enum
+		{
+			Common = 0,
+			Unique = 1
+		};
+	};
 
 	struct OvlHeader
 	{

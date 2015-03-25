@@ -42,7 +42,7 @@ std::string GuiSkinItem::GetNameID() const
 
 unsigned int GuiSkinItem::GetDataSize(unsigned int file)
 {
-	if (file == COMMON)
+	if (file == OvlType::Common)
 	{
 		return sizeof(IconPosition);
 	}
@@ -71,9 +71,9 @@ void GuiSkinItem::CopyDataTo(OvlFile& ovl, GuiSkinItemRawData* gsi, IconPosition
 
 	texRef.AssignOwner(info);
 
-	ovl.AddIdentifier(id, UNIQUE);
-	ovl.AddDataInfo(info, UNIQUE);
-	ovl.AddReference(texRef, UNIQUE);
+	ovl.AddIdentifier(id, OvlType::Unique);
+	ovl.AddDataInfo(info, OvlType::Unique);
+	ovl.AddReference(texRef, OvlType::Unique);
 
 	ovl.GetLog().Info("GuiSkinItem::CopyDataTo(..): Created GuiSkinItem \"" + _name + "\"");
 }
@@ -84,7 +84,7 @@ StructureHeader GuiSkinItem::GetHeader()
 	h.TypeNumber = 1;
 	h.StructID = "gsi";
 	h.StructName = "GUISkinItem";
-	h.LoaderType = FDGKLOADER;
+	h.LoaderType = OvlLoaderType::FDGK;
 	return h;
 }
 
@@ -96,12 +96,12 @@ void GuiSkinItemCollection::AddTo(OvlFile& ovl)
 
 	for (auto g : _structs)
 	{
-		uniqueSize += g->GetDataSize(UNIQUE);
-		commonSize += g->GetDataSize(COMMON);
+		uniqueSize += g->GetDataSize(OvlType::Unique);
+		commonSize += g->GetDataSize(OvlType::Common);
 	}
 
-	DataEntry& uniqueEntry = ovl.CreateEntry(UNIQUE, 2, uniqueSize);
-	DataEntry& commonEntry = ovl.CreateEntry(COMMON, 2, commonSize);
+	DataEntry& uniqueEntry = ovl.CreateEntry(OvlType::Unique, 2, uniqueSize);
+	DataEntry& commonEntry = ovl.CreateEntry(OvlType::Common, 2, commonSize);
 
 	GuiSkinItemRawData* gsi = reinterpret_cast<GuiSkinItemRawData*>(uniqueEntry.Data);
 	IconPosition* pos = reinterpret_cast<IconPosition*>(commonEntry.Data);
