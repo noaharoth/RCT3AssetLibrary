@@ -48,13 +48,7 @@ void FlicManager::CreateAndAssign(OvlFile& ovl)
 		raw[i].FlicInfo.Unknown02 = _textures[i]->FlicUnknown02;
 
 		_textures[i]->FlicAssign(&raw[i].FlicInfo);
-
-		//ovl.GetLog().Debug("FLIC: ptrToFlicInfo = " + STR((unsigned int)&raw[i].FlicInfo));
-
 		_textures[i]->FlicAssign(&raw[i].FlicInfoPtr);
-
-		//ovl.GetLog().Debug("FLIC: ptrToFlicInfoPtr = " + STR((unsigned int)&raw[i].FlicInfoPtr));
-
 		_textures[i]->FlicMade(true);
 
 		DataInfo info(headerIndex, &raw[i].FlicInfo, 0);
