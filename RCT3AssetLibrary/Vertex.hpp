@@ -21,6 +21,14 @@
 
 namespace RCT3Asset
 {
+	
+	struct Vector2
+	{
+		float X;
+		float Y;
+
+		Vector2() : X(0.0f), Y(0.0f) { }
+	};
 
 	struct Vector3
 	{
@@ -36,8 +44,19 @@ namespace RCT3Asset
 		Vector3 Position;
 		Vector3 Normal;
 		unsigned int Color;
-		float U;
-		float V;
+		//float U;
+		//float V;
+		Vector2 UVCoords;
+	};
+
+	struct WeightedVertex
+	{
+		Vector3 Position;
+		Vector3 Normal;
+		signed char Bone[4];
+		unsigned char BoneWeight[4];
+		unsigned int Color;
+		Vector2 UVCoords;
 	};
 
 	struct Triangle
@@ -67,7 +86,7 @@ namespace RCT3Asset
 	{
 		unsigned int Color1;
 		unsigned int Color2;
-		unsigned int Color3;;
+		unsigned int Color3;
 
 		GameColor() : Color1(0), Color2(0), Color3(0) { }
 	};
