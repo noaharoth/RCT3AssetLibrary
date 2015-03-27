@@ -105,6 +105,7 @@
     <ClInclude Include="OvlFile.hpp" />
     <ClInclude Include="OvlIdentifierTable.hpp" />
     <ClInclude Include="OvlImage.hpp" />
+    <ClInclude Include="OvlMesh.hpp" />
     <ClInclude Include="OvlPointerTable.hpp" />
     <ClInclude Include="OvlRaw.hpp" />
     <ClInclude Include="OvlReferenceTable.hpp" />

@@ -49,7 +49,18 @@ namespace RCT3Asset
 
 	struct Matrix4x4
 	{
-		float M[4][4];
+		union
+		{
+			float M[4][4];
+
+			struct
+			{
+				float A1, A2, A3, A4;
+				float B1, B2, B3, B4;
+				float C1, C2, C3, C4;
+				float D1, D2, D3, D4;
+			};
+		};
 	};
 
 	struct GameColor

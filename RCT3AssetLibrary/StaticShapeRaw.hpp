@@ -36,9 +36,14 @@ namespace RCT3Asset
 		unsigned int Flags;
 		unsigned int Sidedness;
 		unsigned int VertexCount;
-		unsigned int TriangleCount;
+		unsigned int IndexCount;
 		Vertex* Vertices;
-		Triangle* Triangles;
+
+		union
+		{
+			Triangle* Triangles;
+			unsigned int* Indices;
+		};
 	};
 
 	struct StaticShapeRawData
