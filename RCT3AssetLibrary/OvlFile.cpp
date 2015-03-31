@@ -29,7 +29,7 @@ void OvlFile::AddString(std::string str, OvlString* location)
 {
 	StringTable.Strings.insert(str);
 	if (location != nullptr)
-		FollowStrings.push(FollowStringPair(str, location));
+		FollowStrings.push(std::pair<std::string, OvlString*>(str, location));
 
 	_log.Debug("AddString(..): added string \"" + str + "\"");
 }
@@ -350,4 +350,181 @@ void OvlFile::Save(std::string filename)
 	fflush(uniqueFile);
 	fclose(commonFile);
 	fclose(uniqueFile);
+
+	/*std::ofstream commonFile, uniqueFile;
+
+	commonFile.open(commonFileName, std::ofstream::out | std::ofstream::trunc | std::ofstream::binary);
+	uniqueFile.open(uniqueFileName, std::ofstream::out | std::ofstream::trunc | std::ofstream::binary);
+
+	if (!commonFile.is_open())
+	{
+		_log.Error("OvlFile::Save(..): unable to open file \"" + commonFileName + "\" for writing!");
+		return;
+	}
+
+	if (!uniqueFile.is_open())
+	{
+		_log.Error("OvlFile::Save(..): unable to open file \"" + uniqueFileName + "\" for writing!");
+		return;
+	}
+
+	_log.Info("OvlFile::Save(..): opened \"" + commonFileName + "\" and \"" + uniqueFileName + "\" for writing.");
+
+	Header.StructureCount = StructureHeaders.size();
+
+	// write header
+	commonFile.write((const char*)&Header.Signature, sizeof(Header.Signature));
+	commonFile.write((const char*)&Header.Reserved, sizeof(Header.Reserved));
+	commonFile.write((const char*)&Header.Version, sizeof(Header.Version));
+	commonFile.write((const char*)&Header.ReferenceCount, sizeof(Header.ReferenceCount));
+	commonFile.write((const char*)&Header.Unknown01, sizeof(Header.Unknown01));
+	commonFile.write((const char*)&Header.StructureCount, sizeof(Header.StructureCount));
+
+	Header.ReferenceCount = FileReferences.size();
+
+	uniqueFile.write((const char*)&Header.Signature, sizeof(Header.Signature));
+	uniqueFile.write((const char*)&Header.Reserved, sizeof(Header.Reserved));
+	uniqueFile.write((const char*)&Header.Version, sizeof(Header.Version));
+	uniqueFile.write((const char*)&Header.ReferenceCount, sizeof(Header.ReferenceCount));
+
+	// write references to unique file
+	for (auto r : FileReferences)
+	{
+		unsigned short size = r.size();
+		uniqueFile.write((const char*)&size, sizeof(unsigned short));
+		uniqueFile << r;
+	}
+
+	uniqueFile.write((const char*)&Header.Unknown01, sizeof(Header.Unknown01));
+	uniqueFile.write((const char*)&Header.StructureCount, sizeof(Header.StructureCount));
+
+	// write structure headers
+
+	for (auto h : StructureHeaders)
+	{
+		unsigned short len = sizeof(h.LoaderType);
+		commonFile.write((const char*)&len, sizeof(len));
+		uniqueFile.write((const char*)&len, sizeof(len));
+		commonFile.write((const char*)&h.LoaderType, sizeof(h.LoaderType));
+		uniqueFile.write((const char*)&h.LoaderType, sizeof(h.LoaderType));
+		len = (unsigned short)h.StructName.length();
+		commonFile.write((const char*)&len, sizeof(len));
+		uniqueFile.write((const char*)&len, sizeof(len));
+		commonFile.write(h.StructName.c_str(), h.StructName.length());
+		uniqueFile.write(h.StructName.c_str(), h.StructName.length());
+		commonFile.write((const char*)&h.TypeNumber, sizeof(h.TypeNumber));
+		uniqueFile.write((const char*)&h.TypeNumber, sizeof(h.TypeNumber));
+		len = (unsigned short)h.StructID.length();
+		commonFile.write((const char*)&len, sizeof(len));
+		uniqueFile.write((const char*)&len, sizeof(len));
+		commonFile.write(h.StructID.c_str(), h.StructID.length());
+		uniqueFile.write(h.StructID.c_str(), h.StructID.length());
+	}
+
+	// data entry counts
+
+	for (unsigned int i = 0; i < 9; i++)
+	{
+		unsigned int count = Sections[COMMON][i].Entries.size();
+		commonFile.write((const char*)&count, sizeof(count));
+		count = Sections[UNIQUE][i].Entries.size();
+		uniqueFile.write((const char*)&count, sizeof(count));
+	}
+
+	// serialize data
+
+	for (unsigned int i = 0; i < 9; i++)
+	{
+		for (unsigned int j = 0; j < Sections[COMMON][i].Entries.size(); j++)
+		{
+			unsigned int size = Sections[COMMON][i].Entries[j].Size;
+
+			_log.Debug("OvlFile::Save(..): File COMMON, Section " + STR(i) + ", Entry " + STR(j) + ": Size = " + STR(size)
+				+ ", File IO Offset = " + STR(commonFile.tellp()));
+
+			commonFile.write((const char*)&size, sizeof(size));
+
+			if (size)
+				commonFile.write((const char*)Sections[COMMON][i].Entries[j].Data, size);
+		}
+	}
+
+	for (unsigned int i = 0; i < 9; i++)
+	{
+		for (unsigned int j = 0; j < Sections[UNIQUE][i].Entries.size(); j++)
+		{
+			unsigned int size = Sections[UNIQUE][i].Entries[j].Size;
+
+			_log.Debug("OvlFile::Save(..): File UNIQUE, Section " + STR(i) + ", Entry " + STR(j) + ": Size = " + STR(size)
+				+ ", File IO Offset = " + STR(uniqueFile.tellp()));
+
+			uniqueFile.write((const char*)&size, sizeof(size));
+			uniqueFile.write((const char*)Sections[UNIQUE][i].Entries[j].Data, size);
+		}
+	}
+
+	// write pointer table
+
+	unsigned int pointerTableSize = PointerTable.PointerTable[COMMON].size();
+	commonFile.write((const char*)&pointerTableSize, sizeof(pointerTableSize));
+	for (unsigned int i = 0; i < pointerTableSize; i++)
+	{
+		unsigned int pointer = PointerTable.PointerTable[COMMON][i];
+		commonFile.write((const char*)&pointer, sizeof(pointer));
+	}
+
+	pointerTableSize = PointerTable.PointerTable[UNIQUE].size();
+	uniqueFile.write((const char*)&pointerTableSize, sizeof(pointerTableSize));
+	for (unsigned int i = 0; i < pointerTableSize; i++)
+	{
+		unsigned int pointer = PointerTable.PointerTable[UNIQUE][i];
+		uniqueFile.write((const char*)&pointer, sizeof(pointer));
+	}
+
+	for (unsigned int i = 0; i < OvlExtraData[COMMON].size(); i++)
+	{
+		commonFile.write((const char*)&OvlExtraData[COMMON][i].Size, sizeof(unsigned int));
+		commonFile.write((const char*)OvlExtraData[COMMON][i].Data, OvlExtraData[COMMON][i].Size);
+	}
+
+	for (unsigned int i = 0; i < OvlExtraData[UNIQUE].size(); i++)
+	{
+		uniqueFile.write((const char*)&OvlExtraData[UNIQUE][i].Size, sizeof(unsigned int));
+		uniqueFile.write((const char*)OvlExtraData[UNIQUE][i].Data, OvlExtraData[UNIQUE][i].Size);
+	}
+
+	// Done!
+
+	_log.Info("OvlFile::Save(..): Successfully wrote OVL data to files!");
+
+	commonFile.close();
+	uniqueFile.close();*/
+}
+
+OvlFile::~OvlFile()
+{
+	for (int i = 0; i < 2; i++)
+	{
+
+		for (int j = 0; j < 9; j++)
+		{
+			for (auto entry : Sections[i][j].Entries)
+			{
+				if (entry.Data != nullptr)
+				{
+					delete[] entry.Data;
+				}
+			}
+		}
+
+		for (auto extra : OvlExtraData[i])
+		{
+			if (extra.Data != nullptr)
+			{
+				delete[] extra.Data;
+			}
+		}
+
+	}
+
 }
