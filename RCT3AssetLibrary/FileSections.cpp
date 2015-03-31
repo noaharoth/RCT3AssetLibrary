@@ -20,6 +20,18 @@
 
 using namespace RCT3Asset;
 
+ExtraData::ExtraData(unsigned int size, void* data)
+	: Size(size), Data(reinterpret_cast<unsigned char*>(data))
+{
+
+}
+
+ExtraData::ExtraData()
+	: Size(0), Data(nullptr)
+{
+
+}
+
 DataEntry::DataEntry() : Size(0), Offset(0), Data(nullptr)
 {
 
