@@ -35,7 +35,10 @@ namespace RCT3Asset
 	class OvlFile
 	{
 	private:
-		typedef std::pair<std::string, OvlString*> FollowStringPair;
+
+		// Disable copying
+		OvlFile(const OvlFile&) = delete;
+		OvlFile& operator=(const OvlFile&) = delete;
 
 		RCT3Debugging::OutputLog& _log;
 
@@ -58,19 +61,13 @@ namespace RCT3Asset
 		OvlIdentifierTable IdentifierTable;
 		OvlDataInfoTable DataInfoTable;
 		OvlReferenceTable ReferenceTable;
-		std::queue<FollowStringPair> FollowStrings; // updates string pointers
+		std::queue<std::pair<std::string, OvlString*>> FollowStrings; // updates string pointers
 		std::vector<StructureHeader> StructureHeaders;
 		std::vector<std::string> FileReferences;
 		std::vector<ExtraData> OvlExtraData[2];
 
 	public:
 		OvlFile(RCT3Debugging::OutputLog& log) : _log(log) { }
-
-		// Disable copy constructor
-		OvlFile(const OvlFile&) = delete;
-
-		// Disable copy operator
-		OvlFile& operator=(const OvlFile&) = delete;
 
 		// * Adds a string to the StringTable.
 		// @param location: The location of the string pointer in raw data.
@@ -110,6 +107,7 @@ namespace RCT3Asset
 		// @param filename: File name WITHOUT extension!
 		void Save(std::string filename);
 
+		~OvlFile();
 	};
 
 }
