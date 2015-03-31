@@ -82,6 +82,12 @@ namespace RCT3Asset
 		};
 	};
 
+	struct KeyFrame
+	{
+		float Time;
+		Vector3 TranslateRotate;
+	};
+
 	struct GameColor
 	{
 		unsigned int Color1;
