@@ -24,19 +24,6 @@
 namespace RCT3Asset
 {
 
-	struct ExtraData
-	{
-		unsigned int Size;
-		unsigned char* Data;
-
-		ExtraData(unsigned int size, void* data);
-
-		ExtraData();
-
-		~ExtraData();
-
-	};
-
 	struct DataEntry
 	{
 		unsigned int Size;
@@ -44,9 +31,6 @@ namespace RCT3Asset
 		unsigned char* Data;
 
 		DataEntry();
-
-		~DataEntry();
-
 	};
 
 	class DataSection
