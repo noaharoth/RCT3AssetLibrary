@@ -1,4 +1,4 @@
-// GuiSkinItemRaw.hpp
+// OvlImage.hpp
 
 /*
 * (C) Copyright 2015 Noah Roth
@@ -18,27 +18,40 @@
 #pragma once
 
 #include "stdafx.hpp"
-#include "Texture.hpp"
+#include "OutputLog.hpp"
 
 namespace RCT3Asset
 {
 
-	struct IconPosition
+	class OvlImage
 	{
-		unsigned int Left;
-		unsigned int Top;
-		unsigned int Right;
-		unsigned int Bottom;
-	};
+	protected:
+		Magick::Image _image;
+		bool _isValid;
+		RCT3Debugging::OutputLog& _log;
 
-	struct GuiSkinItemRawData
-	{
-		unsigned int GsiType;
-		TexRef Texture;
-		IconPosition* PositioningData;
-		unsigned int Unknown;
-	};
+	public:
 
-	typedef GuiSkinItemRawData* GsiRef;
+		OvlImage(RCT3Debugging::OutputLog& log);
+
+		OvlImage(const std::string& imageFile, RCT3Debugging::OutputLog& log);
+
+		bool FromFile(const std::string& imageFile);
+
+		bool Check(std::string& out_msg);
+
+		inline bool HasAlpha() const;
+
+		inline unsigned int Width() const;
+
+		inline unsigned int Height() const;
+
+		inline unsigned int Dimension() const;
+
+	protected:
+
+		static inline bool _isPowerOf2(unsigned int x);
+
+	};
 
 }

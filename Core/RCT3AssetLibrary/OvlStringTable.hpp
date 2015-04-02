@@ -1,4 +1,4 @@
-// GuiSkinItemRaw.hpp
+// OvlStringTable.hpp
 
 /*
 * (C) Copyright 2015 Noah Roth
@@ -18,27 +18,29 @@
 #pragma once
 
 #include "stdafx.hpp"
-#include "Texture.hpp"
+#include "OvlRaw.hpp"
+#include "FileSections.hpp"
+#include "OutputLog.hpp"
 
 namespace RCT3Asset
 {
 
-	struct IconPosition
+	class OvlStringTable
 	{
-		unsigned int Left;
-		unsigned int Top;
-		unsigned int Right;
-		unsigned int Bottom;
-	};
+	private:
+		DataEntry _entry;
+	public:
+		std::set<std::string> Strings;
+		std::vector<unsigned int> Locations;
 
-	struct GuiSkinItemRawData
-	{
-		unsigned int GsiType;
-		TexRef Texture;
-		IconPosition* PositioningData;
-		unsigned int Unknown;
-	};
+		// * Returns the size of the StringTable.
+		unsigned int Size();
 
-	typedef GuiSkinItemRawData* GsiRef;
+		// * Writes string data to specified DataSection (must be allocated beforehand!).
+		void Create(DataEntry& entry, RCT3Debugging::OutputLog& log);
+
+		// Finds the std::string data in the DataEntry data, and returns an OvlString for that data.
+		OvlString Find(std::string str, RCT3Debugging::OutputLog& log);
+	};
 
 }

@@ -1,4 +1,4 @@
-// GuiSkinItemRaw.hpp
+// FlicRaw.hpp
 
 /*
 * (C) Copyright 2015 Noah Roth
@@ -18,27 +18,37 @@
 #pragma once
 
 #include "stdafx.hpp"
-#include "Texture.hpp"
 
 namespace RCT3Asset
 {
 
-	struct IconPosition
+	struct FlicInfoData
 	{
-		unsigned int Left;
-		unsigned int Top;
-		unsigned int Right;
-		unsigned int Bottom;
+		unsigned int* FlicDataPtr;
+		unsigned int Unknown01; // 1
+		float Unknown02; // 1.0
 	};
 
-	struct GuiSkinItemRawData
+	struct FlicRawData
 	{
-		unsigned int GsiType;
-		TexRef Texture;
-		IconPosition* PositioningData;
-		unsigned int Unknown;
+		FlicInfoData* FlicInfoPtr; // points to following FlicInfoData (?)
+		FlicInfoData FlicInfo;
 	};
 
-	typedef GuiSkinItemRawData* GsiRef;
+	struct FlicHeader
+	{
+		unsigned int Format;
+		unsigned int Width;
+		unsigned int Height;
+		unsigned int MipCount;
+	};
+
+	struct MipHeader
+	{
+		unsigned int Width;
+		unsigned int Height;
+		unsigned int Pitch;
+		unsigned int Blocks;
+	};
 
 }

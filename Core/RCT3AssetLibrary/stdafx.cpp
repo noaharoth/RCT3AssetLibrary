@@ -1,4 +1,6 @@
-// GuiSkinItemRaw.hpp
+// stdafx.cpp : source file that includes just the standard includes
+// RCT3AssetLibrary.pch will be the pre-compiled header
+// stdafx.obj will contain the pre-compiled type information
 
 /*
 * (C) Copyright 2015 Noah Roth
@@ -15,30 +17,7 @@
 *
 */
 
-#pragma once
-
 #include "stdafx.hpp"
-#include "Texture.hpp"
 
-namespace RCT3Asset
-{
-
-	struct IconPosition
-	{
-		unsigned int Left;
-		unsigned int Top;
-		unsigned int Right;
-		unsigned int Bottom;
-	};
-
-	struct GuiSkinItemRawData
-	{
-		unsigned int GsiType;
-		TexRef Texture;
-		IconPosition* PositioningData;
-		unsigned int Unknown;
-	};
-
-	typedef GuiSkinItemRawData* GsiRef;
-
-}
+// TODO: reference any additional headers you need in STDAFX.H
+// and not in this file

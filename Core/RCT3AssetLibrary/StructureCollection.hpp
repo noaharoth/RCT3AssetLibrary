@@ -1,4 +1,4 @@
-// GuiSkinItemRaw.hpp
+// StructureCollection.hpp
 
 /*
 * (C) Copyright 2015 Noah Roth
@@ -18,27 +18,34 @@
 #pragma once
 
 #include "stdafx.hpp"
-#include "Texture.hpp"
+#include "OvlFile.hpp"
 
 namespace RCT3Asset
 {
 
-	struct IconPosition
+	template < class TStructure >
+	// * Base class for a StructureCollection.
+	// * StructureCollections should be used even if there is only one
+	//   structure to be added to the OvlFile. This saves you the hassle
+	//   of having to allocate data entries manually.
+	class StructureCollection
 	{
-		unsigned int Left;
-		unsigned int Top;
-		unsigned int Right;
-		unsigned int Bottom;
-	};
+	protected:
+		std::vector<TStructure*> _structs;
 
-	struct GuiSkinItemRawData
-	{
-		unsigned int GsiType;
-		TexRef Texture;
-		IconPosition* PositioningData;
-		unsigned int Unknown;
-	};
+	public:
 
-	typedef GuiSkinItemRawData* GsiRef;
+		//virtual void AddTo(OvlFile& ovl) = 0; <---- no need for this to be virtual
+
+		void Add(TStructure& structure)
+		{
+			_structs.push_back(&structure);
+		}
+
+		unsigned int Count() const
+		{
+			return _structs.size();
+		}
+	};
 
 }

@@ -1,4 +1,4 @@
-// TextureStyle.hpp
+// FtxImage.hpp
 
 /*
 * (C) Copyright 2015 Noah Roth
@@ -18,34 +18,36 @@
 #pragma once
 
 #include "stdafx.hpp"
-#include "OvlFile.hpp"
+#include "OvlImage.hpp"
+#include "Vertex.hpp"
 
 namespace RCT3Asset
 {
 
-	class TextureStyle
+	// FtxImage's use an indexed image format.
+	class FtxImage final : public OvlImage
 	{
 	private:
-		std::string _style;
+		static BGRAColor _rgbPalette[256];
+		static bool _rgbPaletteMade;
 
 	public:
-		TextureStyle();
 
-		TextureStyle(std::string style);
+		FtxImage(RCT3Debugging::OutputLog& log);
 
-		std::string GetStyle() const;
+		FtxImage(const std::string& imageFile, RCT3Debugging::OutputLog& log);
 
-		std::string GetNameID() const;
+		inline unsigned int GetIndexedDataSize() const;
 
-		TextureStyle& operator=(const std::string& value);
+		inline unsigned int GetAlphaDataSize() const;
 
-		void AddTo(OvlFile& ovl);
+		inline unsigned int GetPaletteDataSize() const;
 
-		// --- Texture Style Constants --- //
+		void CopyDataTo(unsigned char* textureDest, unsigned char* paletteDest,
+			unsigned char* alphaDest, bool makeRecolorable = false);
 
-		static const TextureStyle PathGround;
-		static const TextureStyle GUIIcon;
+		static const BGRAColor* GetRGBPalette();
+
 	};
 
-	typedef char* TxsRef;
 }

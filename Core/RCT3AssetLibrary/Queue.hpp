@@ -1,4 +1,4 @@
-// TextString.hpp
+// Queue.hpp
 
 /*
 * (C) Copyright 2015 Noah Roth
@@ -19,48 +19,56 @@
 
 #include "stdafx.hpp"
 #include "OvlFile.hpp"
+#include "QueueRaw.hpp"
+#include "TextString.hpp"
+#include "GuiSkinItem.hpp"
+#include "FlexiTexture.hpp"
+#include "StructRef.hpp"
 #include "StructureCollection.hpp"
 
 namespace RCT3Asset
 {
-	typedef wchar_t TextStringRawData;
-	typedef wchar_t* TxtRef;
-
-	class TextString
+	
+	class Queue
 	{
 	private:
-		std::wstring _text;
 		std::string _name;
+
 	public:
+		StructRef<TextString> Text;
+		StructRef<GuiSkinItem> GsiIcon;
+		StructRef<FlexiTexture> FtxTexture;
+		std::string Straight;
+		std::string TurnL;
+		std::string TurnR;
+		std::string SlopeUp;
+		std::string SlopeDown;
+		std::string SlopeStraight1;
+		std::string SlopeStraight2;
 
-		TextString();
-
-		TextString(std::string name, std::wstring text);
-
-		unsigned int DataSize(unsigned int file);
-
-		unsigned int Length() const;
-
-		std::string GetNameID() const;
-
-		std::string Name() const;
+		Queue();
 
 		void Name(std::string name);
 
-		std::wstring Text() const;
+		std::string Name() const;
 
-		void Text(std::wstring text);
+		std::string GetNameID() const;
 
-		void CopyDataTo(OvlFile& ovl, TextStringRawData* data, unsigned int headerIndex);
+		unsigned int DataSize(unsigned int file);
+
+		void CopyDataTo(OvlFile& ovl, QueueRawData* queue, unsigned int headerIndex);
 
 		static StructureHeader GetHeader();
+
 	};
 
-	class TextStringCollection final : public StructureCollection < TextString >
+
+	class QueueCollection final : public StructureCollection < Queue >
 	{
 	public:
 
 		void AddTo(OvlFile& ovl);
 
 	};
+
 }

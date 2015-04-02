@@ -1,4 +1,4 @@
-// GuiSkinItemRaw.hpp
+// targetver.h
 
 /*
 * (C) Copyright 2015 Noah Roth
@@ -17,28 +17,9 @@
 
 #pragma once
 
-#include "stdafx.hpp"
-#include "Texture.hpp"
+// Including SDKDDKVer.h defines the highest available Windows platform.
 
-namespace RCT3Asset
-{
+// If you wish to build your application for a previous Windows platform, include WinSDKVer.h and
+// set the _WIN32_WINNT macro to the platform you wish to support before including SDKDDKVer.h.
 
-	struct IconPosition
-	{
-		unsigned int Left;
-		unsigned int Top;
-		unsigned int Right;
-		unsigned int Bottom;
-	};
-
-	struct GuiSkinItemRawData
-	{
-		unsigned int GsiType;
-		TexRef Texture;
-		IconPosition* PositioningData;
-		unsigned int Unknown;
-	};
-
-	typedef GuiSkinItemRawData* GsiRef;
-
-}
+#include <SDKDDKVer.h>

@@ -1,4 +1,4 @@
-// GuiSkinItemRaw.hpp
+// OvlMesh.hpp
 
 /*
 * (C) Copyright 2015 Noah Roth
@@ -12,33 +12,16 @@
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 * Lesser General Public License for more details.
-*
 */
 
-#pragma once
-
 #include "stdafx.hpp"
-#include "Texture.hpp"
 
 namespace RCT3Asset
 {
 
-	struct IconPosition
+	class OvlMesh
 	{
-		unsigned int Left;
-		unsigned int Top;
-		unsigned int Right;
-		unsigned int Bottom;
-	};
 
-	struct GuiSkinItemRawData
-	{
-		unsigned int GsiType;
-		TexRef Texture;
-		IconPosition* PositioningData;
-		unsigned int Unknown;
 	};
-
-	typedef GuiSkinItemRawData* GsiRef;
 
 }

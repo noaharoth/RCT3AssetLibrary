@@ -1,4 +1,4 @@
-// TextString.hpp
+// GuiSkinItem.hpp
 
 /*
 * (C) Copyright 2015 Noah Roth
@@ -18,49 +18,48 @@
 #pragma once
 
 #include "stdafx.hpp"
-#include "OvlFile.hpp"
+#include "GuiSkinItemRaw.hpp"
+#include "Texture.hpp"
 #include "StructureCollection.hpp"
+#include "StructRef.hpp"
+#include "OvlFile.hpp"
 
 namespace RCT3Asset
 {
-	typedef wchar_t TextStringRawData;
-	typedef wchar_t* TxtRef;
 
-	class TextString
+	class GuiSkinItem
 	{
 	private:
-		std::wstring _text;
 		std::string _name;
 	public:
+		IconPosition Position;
+		StructRef<Texture> Texture;
+		unsigned int GsiType;
+		unsigned int Unknown;
 
-		TextString();
-
-		TextString(std::string name, std::wstring text);
-
-		unsigned int DataSize(unsigned int file);
-
-		unsigned int Length() const;
-
-		std::string GetNameID() const;
-
-		std::string Name() const;
+		GuiSkinItem();
 
 		void Name(std::string name);
 
-		std::wstring Text() const;
+		std::string Name() const;
 
-		void Text(std::wstring text);
+		std::string GetNameID() const;
 
-		void CopyDataTo(OvlFile& ovl, TextStringRawData* data, unsigned int headerIndex);
+		unsigned int GetDataSize(unsigned int file);
+
+		void CopyDataTo(OvlFile& ovl, GuiSkinItemRawData* gsi, IconPosition* pos, unsigned int headerIndex);
 
 		static StructureHeader GetHeader();
+
 	};
 
-	class TextStringCollection final : public StructureCollection < TextString >
+
+	class GuiSkinItemCollection final : public StructureCollection < GuiSkinItem >
 	{
 	public:
 
 		void AddTo(OvlFile& ovl);
 
 	};
+
 }

@@ -1,4 +1,4 @@
-// GuiSkinItemRaw.hpp
+// StructRef.hpp
 
 /*
 * (C) Copyright 2015 Noah Roth
@@ -18,27 +18,42 @@
 #pragma once
 
 #include "stdafx.hpp"
-#include "Texture.hpp"
 
 namespace RCT3Asset
 {
 
-	struct IconPosition
+	template < class TStructure >
+	class StructRef
 	{
-		unsigned int Left;
-		unsigned int Top;
-		unsigned int Right;
-		unsigned int Bottom;
-	};
+	private:
+		std::string _nameID;
 
-	struct GuiSkinItemRawData
-	{
-		unsigned int GsiType;
-		TexRef Texture;
-		IconPosition* PositioningData;
-		unsigned int Unknown;
-	};
+	public:
+		StructRef() { }
 
-	typedef GuiSkinItemRawData* GsiRef;
+		StructRef(std::string nameID) : _nameID(nameID) { }
+
+		StructRef(TStructure& ref)
+		{
+			_nameID = ref.GetNameID();
+		}
+
+		std::string NameID() const
+		{
+			return _nameID;
+		}
+
+		StructRef& operator=(const TStructure& ref)
+		{
+			_nameID = ref.GetNameID();
+			return *this;
+		}
+
+		StructRef& operator=(const std::string& refNameID)
+		{
+			_nameID = refNameID;
+			return *this;
+		}
+	};
 
 }
