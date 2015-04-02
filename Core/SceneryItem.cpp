@@ -26,7 +26,7 @@ Parameter::Parameter()
 }
 
 Parameter::Parameter(const std::string& type, const std::string& param)
-	: Type(type), Parameter(param)
+	: Type(type), Parameters(param)
 {
 
 }
