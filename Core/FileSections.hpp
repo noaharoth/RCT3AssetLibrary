@@ -24,7 +24,7 @@
 namespace RCT3Asset
 {
 
-	struct ExtraData
+	struct R3AL_API ExtraData
 	{
 		unsigned int Size;
 		unsigned char* Data;
@@ -35,7 +35,7 @@ namespace RCT3Asset
 
 	};
 
-	struct DataEntry
+	struct R3AL_API DataEntry
 	{
 		unsigned int Size;
 		unsigned int Offset;
@@ -44,7 +44,7 @@ namespace RCT3Asset
 		DataEntry();
 	};
 
-	class DataSection
+	class R3AL_API DataSection
 	{
 	public:
 		unsigned int Offset;
@@ -60,7 +60,7 @@ namespace RCT3Asset
 
 	};
 
-	class FileSections
+	class R3AL_API FileSections
 	{
 	private:
 		DataSection _sections[9];

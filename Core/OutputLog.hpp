@@ -24,7 +24,7 @@ namespace RCT3Debugging
 {
 
 	// OutputLog interface.
-	class OutputLog
+	class R3AL_API OutputLog
 	{
 	private:
 		std::ostream* _out;

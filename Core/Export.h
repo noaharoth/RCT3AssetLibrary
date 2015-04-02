@@ -1,4 +1,4 @@
-// TextureStyle.hpp
+// Export.h
 
 /*
 * (C) Copyright 2015 Noah Roth
@@ -12,40 +12,14 @@
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 * Lesser General Public License for more details.
-*
 */
 
 #pragma once
 
-#include "stdafx.hpp"
-#include "OvlFile.hpp"
-
-namespace RCT3Asset
-{
-
-	class R3AL_API TextureStyle
-	{
-	private:
-		std::string _style;
-
-	public:
-		TextureStyle();
-
-		TextureStyle(std::string style);
-
-		std::string GetStyle() const;
-
-		std::string GetNameID() const;
-
-		TextureStyle& operator=(const std::string& value);
-
-		void AddTo(OvlFile& ovl);
-
-		// --- Texture Style Constants --- //
-
-		static const TextureStyle PathGround;
-		static const TextureStyle GUIIcon;
-	};
-
-	typedef char* TxsRef;
-}
+#ifdef R3AL_EXPORTING_DLL
+#define R3AL_API __declspec(dllexport)
+#elif defined(R3AL_IMPORTING_DLL)
+#define R3AL_API __declspec(dllimport)
+#else
+#define R3AL_API
+#endif

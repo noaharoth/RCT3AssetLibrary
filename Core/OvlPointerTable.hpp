@@ -25,7 +25,7 @@
 namespace RCT3Asset
 {
 
-	class OvlPointerTable
+	class R3AL_API OvlPointerTable
 	{
 	public:
 		std::queue<unsigned int*> Pointers;

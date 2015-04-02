@@ -27,7 +27,7 @@
 namespace RCT3Asset
 {
 
-	class TextureMip
+	class R3AL_API TextureMip
 	{
 		TexImage& _image;
 	public:
@@ -42,7 +42,7 @@ namespace RCT3Asset
 
 	};
 
-	class Texture
+	class R3AL_API Texture
 	{
 	private:
 		FlicInfoData** _ptrToFlicInfoPtr;
@@ -98,7 +98,7 @@ namespace RCT3Asset
 		static StructureHeader GetHeader();
 	};
 
-	class TextureCollection final : public StructureCollection < Texture >
+	class R3AL_API TextureCollection final : public StructureCollection < Texture >
 	{
 	public:
 

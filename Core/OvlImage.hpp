@@ -23,7 +23,7 @@
 namespace RCT3Asset
 {
 
-	class OvlImage
+	class R3AL_API OvlImage
 	{
 	protected:
 		Magick::Image _image;

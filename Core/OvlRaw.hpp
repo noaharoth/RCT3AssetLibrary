@@ -47,7 +47,7 @@ namespace RCT3Asset
 		};
 	};
 
-	struct OvlHeader
+	struct R3AL_API OvlHeader
 	{
 		unsigned int Signature;
 		unsigned int Reserved;
@@ -82,7 +82,7 @@ namespace RCT3Asset
 		DataInfoRawData* Owner;
 	};
 
-	struct StructureHeader
+	struct R3AL_API StructureHeader
 	{
 		unsigned int LoaderType;
 		std::string StructName;

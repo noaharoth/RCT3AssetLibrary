@@ -22,7 +22,7 @@
 namespace RCT3Asset
 {
 	
-	struct Vector2
+	struct R3AL_API Vector2
 	{
 		float X;
 		float Y;
@@ -30,7 +30,7 @@ namespace RCT3Asset
 		Vector2() : X(0.0f), Y(0.0f) { }
 	};
 
-	struct Vector3
+	struct R3AL_API Vector3
 	{
 		float X;
 		float Y;
@@ -39,7 +39,7 @@ namespace RCT3Asset
 		Vector3() : X(0.0f), Y(0.0f), Z(0.0f) { }
 	};
 
-	struct Vertex
+	struct R3AL_API Vertex
 	{
 		Vector3 Position;
 		Vector3 Normal;
@@ -49,7 +49,7 @@ namespace RCT3Asset
 		Vector2 UVCoords;
 	};
 
-	struct WeightedVertex
+	struct R3AL_API WeightedVertex
 	{
 		Vector3 Position;
 		Vector3 Normal;
@@ -59,14 +59,14 @@ namespace RCT3Asset
 		Vector2 UVCoords;
 	};
 
-	struct Triangle
+	struct R3AL_API Triangle
 	{
 		unsigned int A;
 		unsigned int B;
 		unsigned int C;
 	};
 
-	struct Matrix4x4
+	struct R3AL_API Matrix4x4
 	{
 		union
 		{
@@ -82,13 +82,13 @@ namespace RCT3Asset
 		};
 	};
 
-	struct KeyFrame
+	struct R3AL_API KeyFrame
 	{
 		float Time;
 		Vector3 TranslateRotate;
 	};
 
-	struct GameColor
+	struct R3AL_API GameColor
 	{
 		unsigned int Color1;
 		unsigned int Color2;
@@ -97,7 +97,7 @@ namespace RCT3Asset
 		GameColor() : Color1(0), Color2(0), Color3(0) { }
 	};
 
-	struct BGRAColor
+	struct R3AL_API BGRAColor
 	{
 		unsigned char B;
 		unsigned char G;
@@ -108,7 +108,7 @@ namespace RCT3Asset
 	};
 
 	// For use with libsquish
-	struct U8Color
+	struct R3AL_API U8Color
 	{
 		squish::u8 R;
 		squish::u8 G;

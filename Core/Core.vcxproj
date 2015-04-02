@@ -92,6 +92,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Export.h" />
     <ClInclude Include="FileSections.hpp" />
     <ClInclude Include="FlexiTexture.hpp" />
     <ClInclude Include="FlexiTextureRaw.hpp" />

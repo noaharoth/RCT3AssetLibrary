@@ -112,3 +112,9 @@ DataInfoRawData* OvlDataInfoTable::Find(DataInfo info, RCT3Debugging::OutputLog&
 
 	return nullptr;
 }
+
+void OvlDataInfoTable::AssignEntry(DataEntry entry, unsigned int file)
+{
+	if (entry.Data != nullptr)
+		_entries[file] = entry;
+}

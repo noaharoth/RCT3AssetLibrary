@@ -26,7 +26,7 @@ namespace RCT3Asset
 	typedef wchar_t TextStringRawData;
 	typedef wchar_t* TxtRef;
 
-	class TextString
+	class R3AL_API TextString
 	{
 	private:
 		std::wstring _text;
@@ -56,7 +56,7 @@ namespace RCT3Asset
 		static StructureHeader GetHeader();
 	};
 
-	class TextStringCollection final : public StructureCollection < TextString >
+	class R3AL_API TextStringCollection final : public StructureCollection < TextString >
 	{
 	public:
 

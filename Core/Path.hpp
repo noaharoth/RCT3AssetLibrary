@@ -27,7 +27,7 @@
 namespace RCT3Asset
 {
 
-	class PathSection
+	class R3AL_API PathSection
 	{
 	private:
 		std::string _sections[4];
@@ -40,7 +40,7 @@ namespace RCT3Asset
 
 	};
 
-	class Path
+	class R3AL_API Path
 	{
 	private:
 		std::string _name;
@@ -122,7 +122,7 @@ namespace RCT3Asset
 
 	};
 
-	class PathCollection final : public StructureCollection < Path >
+	class R3AL_API PathCollection final : public StructureCollection < Path >
 	{
 	public:
 

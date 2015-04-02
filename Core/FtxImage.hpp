@@ -25,7 +25,7 @@ namespace RCT3Asset
 {
 
 	// FtxImage's use an indexed image format.
-	class FtxImage final : public OvlImage
+	class R3AL_API FtxImage final : public OvlImage
 	{
 	private:
 		static BGRAColor _rgbPalette[256];

@@ -27,7 +27,7 @@
 namespace RCT3Asset
 {
 
-	class DataInfo
+	class R3AL_API DataInfo
 	{
 	private:
 		unsigned int _structHeaderIndex;
@@ -65,7 +65,7 @@ namespace RCT3Asset
 		}
 	};
 
-	class OvlDataInfoTable
+	class R3AL_API OvlDataInfoTable
 	{
 	private:
 		DataEntry _entries[2];
@@ -81,11 +81,8 @@ namespace RCT3Asset
 		// * Finds and returns the DataInfo in raw data format located in the created OvlDataInfoTable.
 		DataInfoRawData* Find(DataInfo info, RCT3Debugging::OutputLog& log);
 
-		void AssignEntry(DataEntry entry, unsigned int file)
-		{
-			if (entry.Data != nullptr)
-				_entries[file] = entry;
-		}
+		void AssignEntry(DataEntry entry, unsigned int file);
+
 	};
 
 }

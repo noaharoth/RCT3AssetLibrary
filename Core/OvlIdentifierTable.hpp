@@ -27,7 +27,7 @@
 namespace RCT3Asset
 {
 
-	class Identifier
+	class R3AL_API Identifier
 	{
 	private:
 		std::string _nameID;
@@ -55,7 +55,7 @@ namespace RCT3Asset
 		}
 	};
 
-	struct IdentifierSorter
+	struct R3AL_API IdentifierSorter
 	{
 		static bool icompare_pred(char a, char b);
 
@@ -64,7 +64,7 @@ namespace RCT3Asset
 		bool operator()(const Identifier& id1, const Identifier& id2);
 	};
 
-	class OvlIdentifierTable
+	class R3AL_API OvlIdentifierTable
 	{
 	private:
 		DataEntry _entries[2];

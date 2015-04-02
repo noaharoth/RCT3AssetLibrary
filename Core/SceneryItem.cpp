@@ -20,6 +20,17 @@
 
 using namespace RCT3Asset;
 
+Parameter::Parameter()
+{
+
+}
+
+Parameter::Parameter(const std::string& type, const std::string& param)
+	: Type(type), Parameter(param)
+{
+
+}
+
 PositionData::PositionData() : Flags(0), HeightMin(0), HeightMax(0), SupportsType(0)
 {
 
