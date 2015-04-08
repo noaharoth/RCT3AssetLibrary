@@ -22,9 +22,6 @@
 // target version header
 #include "targetver.h"
 
-// dll export macros
-#include "Export.h"
-
 // c runtime
 #include <stdio.h>
 #include <tchar.h>

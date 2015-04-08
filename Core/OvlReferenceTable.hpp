@@ -27,9 +27,9 @@
 namespace RCT3Asset
 {
 
-	class R3AL_API DataInfo;
+	class DataInfo;
 
-	class R3AL_API Reference
+	class Reference
 	{
 	private:
 		unsigned int* _location;
@@ -52,7 +52,7 @@ namespace RCT3Asset
 		}
 	};
 
-	class R3AL_API OvlReferenceTable
+	class OvlReferenceTable
 	{
 	private:
 		DataEntry _entries[2];

@@ -23,7 +23,7 @@
 namespace RCT3Asset
 {
 
-	class R3AL_API TextureStyle
+	class TextureStyle
 	{
 	private:
 		std::string _style;

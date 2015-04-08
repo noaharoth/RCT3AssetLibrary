@@ -45,7 +45,7 @@ namespace RCT3Asset
 
 	// TexImage's use DXT compression methods for
 	// image serialization, or just plain ARGB8 format.
-	class R3AL_API TexImage final : public OvlImage
+	class TexImage final : public OvlImage
 	{
 	private:
 		unsigned int _format;

@@ -25,7 +25,7 @@
 namespace RCT3Asset
 {
 
-	class R3AL_API OvlStringTable
+	class OvlStringTable
 	{
 	private:
 		DataEntry _entry;

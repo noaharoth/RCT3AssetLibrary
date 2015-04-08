@@ -28,7 +28,7 @@ namespace RCT3Asset
 	// * StructureCollections should be used even if there is only one
 	//   structure to be added to the OvlFile. This saves you the hassle
 	//   of having to allocate data entries manually.
-	class R3AL_API StructureCollection
+	class StructureCollection
 	{
 	protected:
 		std::vector<TStructure*> _structs;

@@ -38,7 +38,7 @@ namespace RCT3Asset
 		};
 	};
 
-	class R3AL_API FlexiTextureFrame
+	class FlexiTextureFrame
 	{
 	private:
 		FtxImage& _image;
@@ -60,7 +60,7 @@ namespace RCT3Asset
 
 	};
 
-	class R3AL_API FlexiTexture
+	class FlexiTexture
 	{
 	private:
 		std::string _name;
@@ -101,7 +101,7 @@ namespace RCT3Asset
 
 	};
 
-	class R3AL_API FlexiTextureCollection final : public StructureCollection < FlexiTexture >
+	class FlexiTextureCollection final : public StructureCollection < FlexiTexture >
 	{
 	public:
 

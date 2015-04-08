@@ -27,7 +27,7 @@
 namespace RCT3Asset
 {
 
-	class R3AL_API GuiSkinItem
+	class GuiSkinItem
 	{
 	private:
 		std::string _name;
@@ -54,7 +54,7 @@ namespace RCT3Asset
 	};
 
 
-	class R3AL_API GuiSkinItemCollection final : public StructureCollection < GuiSkinItem >
+	class GuiSkinItemCollection final : public StructureCollection < GuiSkinItem >
 	{
 	public:
 

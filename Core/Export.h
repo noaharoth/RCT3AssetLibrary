@@ -16,6 +16,7 @@
 
 #pragma once
 
+#if 0
 #ifdef R3AL_EXPORTING_DLL
 #define R3AL_API __declspec(dllexport)
 #elif defined(R3AL_IMPORTING_DLL)
@@ -23,3 +24,6 @@
 #else
 #define R3AL_API
 #endif
+#endif // if 0
+
+#define R3AL

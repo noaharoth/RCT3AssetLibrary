@@ -29,7 +29,7 @@
 namespace RCT3Asset
 {
 	
-	class R3AL_API Queue
+	class Queue
 	{
 	private:
 		std::string _name;
@@ -63,7 +63,7 @@ namespace RCT3Asset
 	};
 
 
-	class R3AL_API QueueCollection final : public StructureCollection < Queue >
+	class QueueCollection final : public StructureCollection < Queue >
 	{
 	public:
 

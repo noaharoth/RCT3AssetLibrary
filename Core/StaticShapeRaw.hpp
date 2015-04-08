@@ -38,7 +38,12 @@ namespace RCT3Asset
 		unsigned int VertexCount;
 		unsigned int IndexCount;
 		Vertex* Vertices;
-		unsigned int* Indices;
+
+		union
+		{
+			Triangle* Triangles;
+			unsigned int* Indices;
+		};
 	};
 
 	struct StaticShapeRawData

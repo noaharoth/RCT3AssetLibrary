@@ -25,7 +25,7 @@
 namespace RCT3Asset
 {
 
-	class R3AL_API FlicManager
+	class FlicManager
 	{
 	private:
 		DataEntry _entry;

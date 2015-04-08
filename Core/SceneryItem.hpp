@@ -26,18 +26,14 @@
 namespace RCT3Asset
 {
 
-	class R3AL_API Parameter
+	class Parameter
 	{
 	public:
 		std::string Type;
 		std::string Parameters;
-
-		Parameter();
-
-		Parameter(const std::string& type, const std::string& param);
 	};
 
-	class R3AL_API PositionData
+	class PositionData
 	{
 	public:
 		unsigned int Flags;
@@ -54,7 +50,7 @@ namespace RCT3Asset
 		void CopyDataTo(OvlFile& ovl, PositioningRawData* pos, unsigned int* data);
 	};
 
-	class R3AL_API SceneryItem
+	class SceneryItem
 	{
 	private:
 		std::string _name;
@@ -122,7 +118,7 @@ namespace RCT3Asset
 	};
 
 
-	class R3AL_API SceneryItemCollection final : public StructureCollection < SceneryItem >
+	class SceneryItemCollection final : public StructureCollection < SceneryItem >
 	{
 	public:
 

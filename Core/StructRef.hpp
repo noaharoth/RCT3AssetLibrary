@@ -23,7 +23,7 @@ namespace RCT3Asset
 {
 
 	template < class TStructure >
-	class R3AL_API StructRef
+	class StructRef
 	{
 	private:
 		std::string _nameID;

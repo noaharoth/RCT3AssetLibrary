@@ -30,9 +30,9 @@
 namespace RCT3Asset
 {
 
-	R3AL_API void InitializeRCT3AssetLibrary(const char* _arg);
+	void InitializeRCT3AssetLibrary(const char* _arg);
 
-	class R3AL_API OvlFile
+	class OvlFile
 	{
 	private:
 
