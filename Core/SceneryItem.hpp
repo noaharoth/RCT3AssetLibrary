@@ -31,6 +31,11 @@ namespace RCT3Asset
 	public:
 		std::string Type;
 		std::string Parameters;
+
+		Parameter();
+
+		Parameter(const std::string& type, const std::string& params);
+
 	};
 
 	class PositionData
@@ -114,7 +119,6 @@ namespace RCT3Asset
 		void CopyDataTo(OvlFile& ovl, unsigned char* unique, unsigned char* common, unsigned int headerIndex);
 
 		static StructureHeader GetHeader();
-
 	};
 
 
