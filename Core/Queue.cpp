@@ -111,7 +111,7 @@ void QueueCollection::AddTo(OvlFile& ovl)
 
 	for (auto p : _structs)
 	{
-		size += p->DataSize(OvlType::Unique);
+		size += p.DataSize(OvlType::Unique);
 	}
 
 	DataEntry& entry = ovl.CreateEntry(OvlType::Unique, 2, size);
@@ -120,6 +120,6 @@ void QueueCollection::AddTo(OvlFile& ovl)
 
 	for (int i = 0; i < _structs.size(); i++)
 	{
-		_structs[i]->CopyDataTo(ovl, &data[i], headerIndex);
+		_structs[i].CopyDataTo(ovl, &data[i], headerIndex);
 	}
 }

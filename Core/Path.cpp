@@ -257,7 +257,7 @@ void PathCollection::AddTo(OvlFile& ovl)
 
 	for (auto p : _structs)
 	{
-		size += p->DataSize(OvlType::Unique);
+		size += p.DataSize(OvlType::Unique);
 	}
 
 	DataEntry& entry = ovl.CreateEntry(OvlType::Unique, 2, size);
@@ -267,8 +267,8 @@ void PathCollection::AddTo(OvlFile& ovl)
 	for (auto p : _structs)
 	{
 
-		p->CopyDataTo(ovl, data, headerIndex);
-		data += p->DataSize(OvlType::Unique);
+		p.CopyDataTo(ovl, data, headerIndex);
+		data += p.DataSize(OvlType::Unique);
 
 	}
 

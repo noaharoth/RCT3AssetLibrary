@@ -96,8 +96,8 @@ void GuiSkinItemCollection::AddTo(OvlFile& ovl)
 
 	for (auto g : _structs)
 	{
-		uniqueSize += g->GetDataSize(OvlType::Unique);
-		commonSize += g->GetDataSize(OvlType::Common);
+		uniqueSize += g.GetDataSize(OvlType::Unique);
+		commonSize += g.GetDataSize(OvlType::Common);
 	}
 
 	DataEntry& uniqueEntry = ovl.CreateEntry(OvlType::Unique, 2, uniqueSize);
@@ -108,6 +108,6 @@ void GuiSkinItemCollection::AddTo(OvlFile& ovl)
 
 	for (int i = 0; i < _structs.size(); i++)
 	{
-		_structs[i]->CopyDataTo(ovl, &gsi[i], &pos[i], headerIndex);
+		_structs[i].CopyDataTo(ovl, &gsi[i], &pos[i], headerIndex);
 	}
 }

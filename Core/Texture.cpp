@@ -196,6 +196,6 @@ void TextureCollection::AddTo(OvlFile& ovl)
 
 	for (int i = 0; i < _structs.size(); i++)
 	{
-		_structs[i]->CopyDataTo(ovl, &raw[i], headerIndex);
+		_structs[i].CopyDataTo(ovl, &raw[i], headerIndex);
 	}
 }
