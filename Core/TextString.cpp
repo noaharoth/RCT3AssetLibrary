@@ -102,7 +102,7 @@ void TextStringCollection::AddTo(OvlFile& ovl)
 
 	for (auto t : _structs)
 	{
-		entrySize += t->DataSize(OvlType::Common);
+		entrySize += t.DataSize(OvlType::Common);
 	}
 
 	DataEntry& entry = ovl.CreateEntry(OvlType::Common, 2, entrySize);
@@ -110,8 +110,8 @@ void TextStringCollection::AddTo(OvlFile& ovl)
 
 	for (auto t : _structs)
 	{
-		t->CopyDataTo(ovl, raw, headerIndex);
+		t.CopyDataTo(ovl, raw, headerIndex);
 
-		raw += t->Length() + 1; // + 1 for the null terminator
+		raw += t.Length() + 1; // + 1 for the null terminator
 	}
 }

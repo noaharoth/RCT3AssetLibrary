@@ -235,7 +235,7 @@ void FlexiTextureCollection::AddTo(OvlFile& ovl)
 
 	for (auto f : _structs)
 	{
-		entrySize += f->GetDataSize(OvlType::Common);
+		entrySize += f.GetDataSize(OvlType::Common);
 	}
 
 	DataEntry& entry = ovl.CreateEntry(OvlType::Common, 2, entrySize);
@@ -243,7 +243,7 @@ void FlexiTextureCollection::AddTo(OvlFile& ovl)
 
 	for (auto f : _structs)
 	{
-		f->CopyDataTo(ovl, raw, headerIndex);
-		raw += f->GetDataSize(OvlType::Common);
+		f.CopyDataTo(ovl, raw, headerIndex);
+		raw += f.GetDataSize(OvlType::Common);
 	}
 }

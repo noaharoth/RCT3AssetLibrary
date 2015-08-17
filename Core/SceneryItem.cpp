@@ -325,8 +325,8 @@ void SceneryItemCollection::AddTo(OvlFile& ovl)
 
 	for (auto s : _structs)
 	{
-		uniqueSize += s->GetDataSize(OvlType::Unique);
-		commonSize += s->GetDataSize(OvlType::Common);
+		uniqueSize += s.GetDataSize(OvlType::Unique);
+		commonSize += s.GetDataSize(OvlType::Common);
 	}
 
 	DataEntry& uniqueEntry = ovl.CreateEntry(OvlType::Unique, 2, uniqueSize);
@@ -337,8 +337,8 @@ void SceneryItemCollection::AddTo(OvlFile& ovl)
 
 	for (auto s : _structs)
 	{
-		s->CopyDataTo(ovl, uniqueData, commonData, headerIndex);
-		uniqueData += s->GetDataSize(OvlType::Unique);
-		commonData += s->GetDataSize(OvlType::Common);
+		s.CopyDataTo(ovl, uniqueData, commonData, headerIndex);
+		uniqueData += s.GetDataSize(OvlType::Unique);
+		commonData += s.GetDataSize(OvlType::Common);
 	}
 }
