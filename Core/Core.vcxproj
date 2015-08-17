@@ -100,6 +100,8 @@
     <ClInclude Include="FtxImage.hpp" />
     <ClInclude Include="GuiSkinItem.hpp" />
     <ClInclude Include="GuiSkinItemRaw.hpp" />
+    <ClInclude Include="ManifoldMesh.hpp" />
+    <ClInclude Include="ManifoldMeshRaw.hpp" />
     <ClInclude Include="OutputLog.hpp" />
     <ClInclude Include="OvlDataInfoTable.hpp" />
     <ClInclude Include="OvlFile.hpp" />
@@ -134,6 +136,7 @@
     <ClCompile Include="FlicManager.cpp" />
     <ClCompile Include="FtxImage.cpp" />
     <ClCompile Include="GuiSkinItem.cpp" />
+    <ClCompile Include="ManifoldMesh.cpp" />
     <ClCompile Include="OutputLog.cpp" />
     <ClCompile Include="OvlDataInfoTable.cpp" />
     <ClCompile Include="OvlFile.cpp" />
