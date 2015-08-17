@@ -31,7 +31,7 @@ namespace RCT3Asset
 	class StructureCollection
 	{
 	protected:
-		std::vector<TStructure*> _structs;
+		std::vector<TStructure> _structs;
 
 	public:
 
@@ -39,7 +39,7 @@ namespace RCT3Asset
 
 		void Add(TStructure& structure)
 		{
-			_structs.push_back(&structure);
+			_structs.push_back(structure);
 		}
 
 		unsigned int Count() const
