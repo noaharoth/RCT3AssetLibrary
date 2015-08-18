@@ -48,13 +48,13 @@ bool IdentifierSorter::icompare_pred(char a, char b)
 	return std::tolower(a) < std::tolower(b);
 }
 
-bool IdentifierSorter::icompare(const std::string& a, const std::string& b)
+bool IdentifierSorter::icompare(const std::string& a, const std::string& b) const
 {
 	return std::lexicographical_compare(a.begin(), a.end(),
 		b.begin(), b.end(), icompare_pred);
 }
 
-bool IdentifierSorter::operator()(const Identifier& id1, const Identifier& id2)
+bool IdentifierSorter::operator()(const Identifier& id1, const Identifier& id2) const
 {
 
 	std::string id1n = id1.NameID();

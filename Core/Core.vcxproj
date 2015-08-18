@@ -79,14 +79,14 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <Optimization>Full</Optimization>
+      <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>false</IntrinsicFunctions>
       <PreprocessorDefinitions>R3AL_EXPORTING_DLL;NDEBUG;_CONSOLE;WIN32;_VISUALC_;NeedFunctionPrototypes;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <AdditionalIncludeDirectories>C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20;C:\Users\noaha\Documents\Coding\squish-1.11;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\xlib;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\lib;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\magick;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\demo;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\lib\Magick++;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\tests;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
     </ClCompile>

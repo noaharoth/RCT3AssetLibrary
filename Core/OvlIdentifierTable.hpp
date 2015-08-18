@@ -59,9 +59,9 @@ namespace RCT3Asset
 	{
 		static bool icompare_pred(char a, char b);
 
-		bool icompare(const std::string& a, const std::string& b);
+		bool icompare(const std::string& a, const std::string& b) const;
 
-		bool operator()(const Identifier& id1, const Identifier& id2);
+		bool operator()(const Identifier& id1, const Identifier& id2) const;
 	};
 
 	class OvlIdentifierTable

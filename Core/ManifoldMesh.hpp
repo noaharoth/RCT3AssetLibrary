@@ -56,24 +56,7 @@ namespace RCT3Asset
 	{
 	public:
 
-		void AddTo(OvlFile& ovl)
-		{
-			unsigned int headerIndex = ovl.AddStructureHeader(ManifoldMesh::GetHeader());
+		void AddTo(OvlFile& ovl);
 
-			unsigned int size = 0;
-
-			for (auto m : _structs)
-				size += m.GetDataSize(OvlType::Common);
-
-			DataEntry& commonEntry = ovl.CreateEntry(OvlType::Common, 4, size);
-
-			unsigned char* rawData = commonEntry.Data;
-
-			for (auto m : _structs)
-			{
-				m.CopyDataTo(ovl, rawData, headerIndex);
-				rawData += m.GetDataSize(OvlType::Common);
-			}
-		}
 	};
 }
