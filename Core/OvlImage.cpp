@@ -27,7 +27,7 @@ OvlImage::OvlImage(RCT3Debugging::OutputLog& log)
 }
 
 OvlImage::OvlImage(const std::string& imageFile, RCT3Debugging::OutputLog& log)
-	: _log(log), _isValid(false)
+	: _log(log), _isValid(true)
 {
 	FromFile(imageFile);
 }
@@ -39,6 +39,13 @@ bool OvlImage::FromFile(const std::string& imageFile)
 		_image.read(imageFile);
 
 		std::string possibleErrors = "";
+
+		if (!_image.isValid())
+		{
+			_log.Error("OvlImage::FromFile(...): Image is not valid");
+
+			return _isValid = false;
+		}
 
 		if (!Check(possibleErrors))
 		{
@@ -58,6 +65,8 @@ bool OvlImage::FromFile(const std::string& imageFile)
 			"\n\tImage file: " + imageFile);
 		return _isValid = false;
 	}
+
+	return false;
 }
 
 bool OvlImage::Check(std::string& out_msg)
@@ -73,7 +82,7 @@ bool OvlImage::Check(std::string& out_msg)
 	if (!_isPowerOf2(Dimension()))
 	{
 		ok = false;
-		out_msg += "\tImage must be a power of two!\n";
+		out_msg += "\tImage must be a power of two! (Size is " + std::to_string(Width()) + "x" + std::to_string(Height()) + "\n";
 	}
 
 	if (Dimension() > 2048)
@@ -85,7 +94,7 @@ bool OvlImage::Check(std::string& out_msg)
 	return ok;
 }
 
-inline bool OvlImage::HasAlpha() const
+bool OvlImage::HasAlpha() const
 {
 	if (_isValid)
 		return _image.matte();
@@ -95,7 +104,7 @@ inline bool OvlImage::HasAlpha() const
 	return false;
 }
 
-inline unsigned int OvlImage::Width() const
+unsigned int OvlImage::Width() const
 {
 	if (_isValid)
 		return _image.rows();
@@ -105,7 +114,7 @@ inline unsigned int OvlImage::Width() const
 	return 0;
 }
 
-inline unsigned int OvlImage::Height() const
+unsigned int OvlImage::Height() const
 {
 	if (_isValid)
 		return _image.columns();
@@ -115,7 +124,7 @@ inline unsigned int OvlImage::Height() const
 	return 0;
 }
 
-inline unsigned int OvlImage::Dimension() const
+unsigned int OvlImage::Dimension() const
 {
 	if (_isValid)
 		return _image.columns();

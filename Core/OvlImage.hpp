@@ -40,17 +40,17 @@ namespace RCT3Asset
 
 		bool Check(std::string& out_msg);
 
-		inline bool HasAlpha() const;
+		bool HasAlpha() const;
 
-		inline unsigned int Width() const;
+		unsigned int Width() const;
 
-		inline unsigned int Height() const;
+		unsigned int Height() const;
 
-		inline unsigned int Dimension() const;
+		unsigned int Dimension() const;
 
 	protected:
 
-		static inline bool _isPowerOf2(unsigned int x);
+		static bool _isPowerOf2(unsigned int x);
 
 	};
 

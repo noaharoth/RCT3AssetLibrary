@@ -37,11 +37,11 @@ namespace RCT3Asset
 
 		FtxImage(const std::string& imageFile, RCT3Debugging::OutputLog& log);
 
-		inline unsigned int GetIndexedDataSize() const;
+		unsigned int GetIndexedDataSize() const;
 
-		inline unsigned int GetAlphaDataSize() const;
+		unsigned int GetAlphaDataSize() const;
 
-		inline unsigned int GetPaletteDataSize() const;
+		unsigned int GetPaletteDataSize() const;
 
 		void CopyDataTo(unsigned char* textureDest, unsigned char* paletteDest,
 			unsigned char* alphaDest, bool makeRecolorable = false);
