@@ -43,13 +43,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>RCT3AssetLibrary_d</TargetName>
+    <TargetName>R3AL_d</TargetName>
     <IncludePath>C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\lib;C:\Users\noaha\Documents\Coding\squish-1.11;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\noaha\Documents\Coding\squish-1.11\lib\vs9;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>RCT3AssetLibrary</TargetName>
+    <TargetName>R3AL</TargetName>
     <IncludePath>C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\lib;C:\Users\noaha\Documents\Coding\squish-1.11;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\noaha\Documents\Coding\squish-1.11\lib\vs9;$(LibraryPath)</LibraryPath>
   </PropertyGroup>

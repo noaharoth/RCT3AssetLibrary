@@ -1,5 +1,5 @@
 // OvlImage.hpp
-// No longer using GraphicsMagick and libsquish, instead using ResIL (DevIL) and libimagequant
+// No longer using GraphicsMagick and libsquish, instead using ResIL (DevIL)
 
 /*
 * (C) Copyright 2015 Noah Roth
