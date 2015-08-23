@@ -15,7 +15,7 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Core</RootNamespace>
     <ProjectName>Core</ProjectName>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -44,13 +44,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <TargetName>R3AL_d</TargetName>
-    <IncludePath>C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\lib;C:\Users\noaha\Documents\Coding\squish-1.11;$(IncludePath)</IncludePath>
+    <IncludePath>../Debugging;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\lib;C:\Users\noaha\Documents\Coding\squish-1.11;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\noaha\Documents\Coding\squish-1.11\lib\vs9;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <TargetName>R3AL</TargetName>
-    <IncludePath>C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\lib;C:\Users\noaha\Documents\Coding\squish-1.11;$(IncludePath)</IncludePath>
+    <IncludePath>../Debugging;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\lib;C:\Users\noaha\Documents\Coding\squish-1.11;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\noaha\Documents\Coding\squish-1.11\lib\vs9;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -72,8 +72,8 @@
       <AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\VisualMagick\lib;C:\Users\noaha\Documents\Coding\squish-1.11\lib\vs9</AdditionalLibraryDirectories>
-      <AdditionalDependencies>squishd.lib;X11.lib;Xext.lib;CORE_DB_bzlib_.lib;CORE_DB_coders_.lib;CORE_DB_filters_.lib;CORE_DB_jbig_.lib;CORE_DB_jp2_.lib;CORE_DB_jpeg_.lib;CORE_DB_lcms_.lib;CORE_DB_libxml_.lib;CORE_DB_magick_.lib;CORE_DB_Magick++_.lib;CORE_DB_png_.lib;CORE_DB_tiff_.lib;CORE_DB_ttf_.lib;CORE_DB_wand_.lib;CORE_DB_webp_.lib;CORE_DB_wmf_.lib;CORE_DB_xlib_.lib;CORE_DB_zlib_.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../Debug;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\VisualMagick\lib;C:\Users\noaha\Documents\Coding\squish-1.11\lib\vs9</AdditionalLibraryDirectories>
+      <AdditionalDependencies>R3AL_Debugging_d.lib;squishd.lib;X11.lib;Xext.lib;CORE_DB_bzlib_.lib;CORE_DB_coders_.lib;CORE_DB_filters_.lib;CORE_DB_jbig_.lib;CORE_DB_jp2_.lib;CORE_DB_jpeg_.lib;CORE_DB_lcms_.lib;CORE_DB_libxml_.lib;CORE_DB_magick_.lib;CORE_DB_Magick++_.lib;CORE_DB_png_.lib;CORE_DB_tiff_.lib;CORE_DB_ttf_.lib;CORE_DB_wand_.lib;CORE_DB_webp_.lib;CORE_DB_wmf_.lib;CORE_DB_xlib_.lib;CORE_DB_zlib_.lib</AdditionalDependencies>
       <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
     </Lib>
   </ItemDefinitionGroup>
@@ -101,8 +101,8 @@
       <AdditionalLibraryDirectories>C:\Users\Noah\Documents\Coding\squish-1.11\lib\vs9;C:\Users\Noah\Documents\Coding\GraphicsMagick-1.3.20\VisualMagick\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\VisualMagick\lib;C:\Users\noaha\Documents\Coding\squish-1.11\lib\vs9</AdditionalLibraryDirectories>
-      <AdditionalDependencies>squish.lib;X11.lib;Xext.lib;CORE_RL_bzlib_.lib;CORE_RL_coders_.lib;CORE_RL_filters_.lib;CORE_RL_jbig_.lib;CORE_RL_jp2_.lib;CORE_RL_jpeg_.lib;CORE_RL_lcms_.lib;CORE_RL_libxml_.lib;CORE_RL_magick_.lib;CORE_RL_Magick++_.lib;CORE_RL_png_.lib;CORE_RL_tiff_.lib;CORE_RL_ttf_.lib;CORE_RL_wand_.lib;CORE_RL_webp_.lib;CORE_RL_wmf_.lib;CORE_RL_xlib_.lib;CORE_RL_zlib_.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../Release;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\VisualMagick\lib;C:\Users\noaha\Documents\Coding\squish-1.11\lib\vs9</AdditionalLibraryDirectories>
+      <AdditionalDependencies>R3AL_Debugging.lib;squish.lib;X11.lib;Xext.lib;CORE_RL_bzlib_.lib;CORE_RL_coders_.lib;CORE_RL_filters_.lib;CORE_RL_jbig_.lib;CORE_RL_jp2_.lib;CORE_RL_jpeg_.lib;CORE_RL_lcms_.lib;CORE_RL_libxml_.lib;CORE_RL_magick_.lib;CORE_RL_Magick++_.lib;CORE_RL_png_.lib;CORE_RL_tiff_.lib;CORE_RL_ttf_.lib;CORE_RL_wand_.lib;CORE_RL_webp_.lib;CORE_RL_wmf_.lib;CORE_RL_xlib_.lib;CORE_RL_zlib_.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -116,12 +116,10 @@
     <ClInclude Include="GuiSkinItemRaw.hpp" />
     <ClInclude Include="ManifoldMesh.hpp" />
     <ClInclude Include="ManifoldMeshRaw.hpp" />
-    <ClInclude Include="OutputLog.hpp" />
     <ClInclude Include="OvlDataInfoTable.hpp" />
     <ClInclude Include="OvlFile.hpp" />
     <ClInclude Include="OvlIdentifierTable.hpp" />
     <ClInclude Include="OvlImage.hpp" />
-    <ClInclude Include="OvlMesh.hpp" />
     <ClInclude Include="OvlPointerTable.hpp" />
     <ClInclude Include="OvlRaw.hpp" />
     <ClInclude Include="OvlReferenceTable.hpp" />
@@ -151,7 +149,6 @@
     <ClCompile Include="FtxImage.cpp" />
     <ClCompile Include="GuiSkinItem.cpp" />
     <ClCompile Include="ManifoldMesh.cpp" />
-    <ClCompile Include="OutputLog.cpp" />
     <ClCompile Include="OvlDataInfoTable.cpp" />
     <ClCompile Include="OvlFile.cpp" />
     <ClCompile Include="OvlIdentifierTable.cpp" />

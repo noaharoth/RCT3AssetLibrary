@@ -18,7 +18,7 @@
 #pragma once
 
 #include "stdafx.hpp"
-#include "OutputLog.hpp"
+#include <OutputLog.hpp>
 
 namespace RCT3Asset
 {

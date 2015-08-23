@@ -1,5 +1,4 @@
-// OvlImage.hpp
-// No longer using GraphicsMagick and libsquish, instead using ResIL (DevIL)
+// OvlMesh.hpp
 
 /*
 * (C) Copyright 2015 Noah Roth
@@ -17,38 +16,9 @@
 
 #pragma once
 
-#include <string>
-#include <IL/il2.h>
-#include <IL/ilu2.h>
-
 namespace RCT3Asset
 {
 
-	// A wrapper class that incorporates functionality from ResIL
-	// that pertains to OVL image format.
-	class OvlImage
-	{
-	private:
-		ILimage* _image;
 
-	protected:
-
-		static bool _resILInitialized;
-
-		static bool _resILInit()
-		{
-			il2Init();
-
-			ILenum error = il2GetError();
-
-			if (error != IL_NO_ERROR)
-			{
-
-			}
-
-			ilu2Init();
-		}
-
-	};
 
 }

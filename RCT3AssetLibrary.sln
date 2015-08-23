@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Image", "Image\Image.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mesh", "Mesh\Mesh.vcxproj", "{94F940A7-3881-47A1-8FEF-501FC1B2F5AA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Debugging", "Debugging\Debugging.vcxproj", "{34485A8C-2921-4D55-BE12-32FD5CC87265}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -47,6 +49,14 @@ Global
 		{94F940A7-3881-47A1-8FEF-501FC1B2F5AA}.Release|Win32.Build.0 = Release|Win32
 		{94F940A7-3881-47A1-8FEF-501FC1B2F5AA}.Release|x64.ActiveCfg = Release|x64
 		{94F940A7-3881-47A1-8FEF-501FC1B2F5AA}.Release|x64.Build.0 = Release|x64
+		{34485A8C-2921-4D55-BE12-32FD5CC87265}.Debug|Win32.ActiveCfg = Debug|Win32
+		{34485A8C-2921-4D55-BE12-32FD5CC87265}.Debug|Win32.Build.0 = Debug|Win32
+		{34485A8C-2921-4D55-BE12-32FD5CC87265}.Debug|x64.ActiveCfg = Debug|x64
+		{34485A8C-2921-4D55-BE12-32FD5CC87265}.Debug|x64.Build.0 = Debug|x64
+		{34485A8C-2921-4D55-BE12-32FD5CC87265}.Release|Win32.ActiveCfg = Release|Win32
+		{34485A8C-2921-4D55-BE12-32FD5CC87265}.Release|Win32.Build.0 = Release|Win32
+		{34485A8C-2921-4D55-BE12-32FD5CC87265}.Release|x64.ActiveCfg = Release|x64
+		{34485A8C-2921-4D55-BE12-32FD5CC87265}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -22,7 +22,7 @@
 #include "OvlDataInfoTable.hpp"
 #include "OvlStringTable.hpp"
 #include "OvlPointerTable.hpp"
-#include "OutputLog.hpp"
+#include <OutputLog.hpp>
 
 namespace RCT3Asset
 {

@@ -20,7 +20,7 @@
 #include "stdafx.hpp"
 #include "OvlRaw.hpp"
 #include "FileSections.hpp"
-#include "OutputLog.hpp"
+#include <OutputLog.hpp>
 
 namespace RCT3Asset
 {

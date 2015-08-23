@@ -1,4 +1,6 @@
-// OvlMesh.hpp
+// stdafx.h : include file for standard system include files,
+// or project specific include files that are used frequently, but
+// are changed infrequently
 
 /*
 * (C) Copyright 2015 Noah Roth
@@ -12,16 +14,24 @@
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 * Lesser General Public License for more details.
+*
 */
 
-#include "stdafx.hpp"
+#pragma once
 
-namespace RCT3Asset
-{
+// c runtime
+#include <stdio.h>
+#include <tchar.h>
 
-	class OvlMesh
-	{
-
-	};
-
-}
+// c++ standard library
+#include <string>
+#include <vector>
+#include <set>
+#include <map>
+#include <queue>
+#include <iostream>
+#include <fstream>
+#include <ctime>
+#include <sstream>
+#include <cctype>
+#include <algorithm>

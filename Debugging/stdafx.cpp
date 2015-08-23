@@ -1,5 +1,6 @@
-// OvlImage.hpp
-// No longer using GraphicsMagick and libsquish, instead using ResIL (DevIL)
+// stdafx.cpp : source file that includes just the standard includes
+// R3AL_Debugging.pch will be the pre-compiled header
+// stdafx.obj will contain the pre-compiled type information
 
 /*
 * (C) Copyright 2015 Noah Roth
@@ -13,42 +14,10 @@
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 * Lesser General Public License for more details.
+*
 */
 
-#pragma once
+#include "stdafx.hpp"
 
-#include <string>
-#include <IL/il2.h>
-#include <IL/ilu2.h>
-
-namespace RCT3Asset
-{
-
-	// A wrapper class that incorporates functionality from ResIL
-	// that pertains to OVL image format.
-	class OvlImage
-	{
-	private:
-		ILimage* _image;
-
-	protected:
-
-		static bool _resILInitialized;
-
-		static bool _resILInit()
-		{
-			il2Init();
-
-			ILenum error = il2GetError();
-
-			if (error != IL_NO_ERROR)
-			{
-
-			}
-
-			ilu2Init();
-		}
-
-	};
-
-}
+// TODO: reference any additional headers you need in STDAFX.H
+// and not in this file

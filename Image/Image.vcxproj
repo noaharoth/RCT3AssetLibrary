@@ -70,9 +70,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>R3AL_Image_d</TargetName>
+    <IncludePath>../Debugging;C:\Users\noaha\Documents\Coding\ResIL-1.8.3\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <TargetName>R3AL_Image</TargetName>
+    <IncludePath>../Debugging;C:\Users\noaha\Documents\Coding\ResIL-1.8.3\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
