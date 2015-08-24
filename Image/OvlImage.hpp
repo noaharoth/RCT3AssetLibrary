@@ -17,9 +17,9 @@
 
 #pragma once
 
-#include <string>
-#include <IL/il2.h>
-#include <IL/ilu2.h>
+#include "stdafx.hpp"
+
+#include <Debugging\OutputLog.hpp>
 
 namespace RCT3Asset
 {
@@ -30,24 +30,31 @@ namespace RCT3Asset
 	{
 	private:
 		ILimage* _image;
+		RCT3Debugging::OutputLog& _log;
+		unsigned int _width;
+		unsigned int _height;
 
 	protected:
 
 		static bool _resILInitialized;
 
-		static bool _resILInit()
-		{
-			il2Init();
+		bool _resILInit();
 
-			ILenum error = il2GetError();
+	public:
 
-			if (error != IL_NO_ERROR)
-			{
+		OvlImage(RCT3Debugging::OutputLog& log);
 
-			}
+		OvlImage(RCT3Debugging::OutputLog& log, const std::string& fileName);
 
-			ilu2Init();
-		}
+		bool FromFile(const std::string& fileName);
+
+		unsigned int Width() const;
+
+		unsigned int Height() const;
+
+		void DeleteImage();
+
+		virtual ~OvlImage();
 
 	};
 
