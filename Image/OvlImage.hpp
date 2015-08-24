@@ -42,6 +42,10 @@ namespace RCT3Asset
 
 	public:
 
+		// Disable copying!
+		OvlImage(const OvlImage&) = delete;
+		OvlImage& operator=(const OvlImage&) = delete;
+
 		OvlImage(RCT3Debugging::OutputLog& log);
 
 		OvlImage(RCT3Debugging::OutputLog& log, const std::string& fileName);
