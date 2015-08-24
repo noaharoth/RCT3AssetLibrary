@@ -24,8 +24,19 @@
 namespace RCT3Asset
 {
 
-	// A wrapper class that incorporates functionality from ResIL
-	// that pertains to OVL image format.
+	struct OvlImageFormat
+	{
+		enum
+		{
+			RGBA,
+			RGB,
+			IndexedRGB,
+			IndexedRGBA
+		};
+	};
+
+	// A wrapper class that incorporates functionality from ResIL \
+	 that pertains to the OVL image format.
 	class OvlImage
 	{
 	private:
@@ -33,6 +44,7 @@ namespace RCT3Asset
 		RCT3Debugging::OutputLog& _log;
 		unsigned int _width;
 		unsigned int _height;
+		unsigned int _format;
 
 	protected:
 
@@ -55,6 +67,8 @@ namespace RCT3Asset
 		unsigned int Width() const;
 
 		unsigned int Height() const;
+
+		unsigned int Dimension() const;
 
 		void DeleteImage();
 
