@@ -85,21 +85,63 @@ bool OvlImage::FromFile(const std::string& fileName)
 		return false;
 	}
 
-	// Make sure image is in the proper format
-	if (!il2ConvertImage(_image, IL_RGBA, IL_UNSIGNED_BYTE))
+
+	ILint format;
+	il2GetImageInteger(_image, IL_IMAGE_FORMAT, &format);
+
+	// Make sure image is in a supported format
+	if ((format != IL_RGB) && (format != IL_RGBA) && (format != IL_PAL_RGB32) && (format != IL_PAL_RGBA32))
 	{
-		error = il2GetError();
-		_log.Error("OvlImage::FromFile(..): Error converting image \"" + fileName + "\" (error " +
-			std::to_string((unsigned int)error) + ")");
-		DeleteImage();
-		return false;
+		// If not, attempt to convert it to a basic RGBA format
+		if (!il2ConvertImage(_image, IL_RGBA, IL_UNSIGNED_BYTE))
+		{
+			error = il2GetError();
+			_log.Error("OvlImage::FromFile(..): Error converting image \"" + fileName + "\" (error " +
+				std::to_string((unsigned int)error) + ")");
+			DeleteImage();
+			return false;
+		}
+		else
+		{
+			_format = OvlImageFormat::RGBA;
+		}
+	}
+
+	switch (format)
+	{
+		case IL_RGB:
+			_format = OvlImageFormat::RGB;
+			break;
+		case IL_RGBA:
+			_format = OvlImageFormat::RGBA;
+			break;
+		case IL_PAL_RGB32:
+			_format = OvlImageFormat::IndexedRGB;
+			break;
+		case IL_PAL_RGBA32:
+			_format = OvlImageFormat::IndexedRGBA;
+			break;
+		default:
+			// Attempt to convert it to a basic RGBA format
+			if (!il2ConvertImage(_image, IL_RGBA, IL_UNSIGNED_BYTE))
+			{
+				error = il2GetError();
+				_log.Error("OvlImage::FromFile(..): Error converting image \"" + fileName + "\" (error " +
+					std::to_string((unsigned int)error) + ")");
+				DeleteImage();
+				return false;
+			}
+			else
+			{
+				_format = OvlImageFormat::RGBA;
+				break;
+			}
 	}
 
 	ILint w, h;
 
 	il2GetImageInteger(_image, IL_IMAGE_WIDTH, &w);
 	il2GetImageInteger(_image, IL_IMAGE_HEIGHT, &h);
-
 
 	// Check if image is square
 	if (w != h)
@@ -141,6 +183,11 @@ unsigned int OvlImage::Width() const
 }
 
 unsigned int OvlImage::Height() const
+{
+	return _height;
+}
+
+unsigned int OvlImage::Dimension() const
 {
 	return _height;
 }
