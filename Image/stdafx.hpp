@@ -40,3 +40,6 @@
 // ResIL
 #include <IL/il2.h>
 #include <IL/ilu2.h>
+
+// Debugging
+#include <Debugging\OutputLog.hpp>

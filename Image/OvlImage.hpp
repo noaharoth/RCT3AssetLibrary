@@ -19,34 +19,54 @@
 
 #include "stdafx.hpp"
 
-#include <Debugging\OutputLog.hpp>
-
 namespace RCT3Asset
 {
 
-	struct OvlImageFormat
+	struct BGRAColor
 	{
-		enum
-		{
-			RGBA,
-			RGB,
-			IndexedRGB,
-			IndexedRGBA
-		};
+		unsigned char B;
+		unsigned char G;
+		unsigned char R;
+		unsigned char A;
+
+		BGRAColor() : B(0), G(0), R(0), A(0) { }
+
+		BGRAColor(unsigned char b, unsigned char g, unsigned char r, unsigned char a) : B(b), G(g), R(r), A(a) { }
+	};
+
+	struct RGBAColor
+	{
+		unsigned char R;
+		unsigned char G;
+		unsigned char B;
+		unsigned char A;
+
+		RGBAColor() : R(0), G(0), B(0), A(0) { }
+
+		RGBAColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a) : R(r), G(g), B(b), A(a) { }
+	};
+
+	struct RGBColor
+	{
+		unsigned char R;
+		unsigned char G;
+		unsigned char B;
+
+		RGBColor() : R(0), G(0), B(0) { }
+
+		RGBColor(unsigned char r, unsigned char g, unsigned char b) : R(r), G(g), B(b) { }
 	};
 
 	// A wrapper class that incorporates functionality from ResIL \
 	 that pertains to the OVL image format.
 	class OvlImage
 	{
-	private:
+	protected:
 		ILimage* _image;
 		RCT3Debugging::OutputLog& _log;
 		unsigned int _width;
 		unsigned int _height;
-		unsigned int _format;
-
-	protected:
+		bool _hasAlpha;
 
 		static bool _resILInitialized;
 
@@ -69,6 +89,8 @@ namespace RCT3Asset
 		unsigned int Height() const;
 
 		unsigned int Dimension() const;
+
+		bool HasAlpha() const;
 
 		void DeleteImage();
 

@@ -137,11 +137,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="FtxImage.hpp" />
     <ClInclude Include="OvlImage.hpp" />
     <ClInclude Include="stdafx.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FtxImage.cpp" />
     <ClCompile Include="OvlImage.cpp" />
+    <ClCompile Include="Palette.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
