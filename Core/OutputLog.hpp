@@ -23,6 +23,11 @@
 namespace RCT3Debugging
 {
 
+	class OutputLog;
+
+	// Gets invoked after first error is reached.
+	typedef void(*ErrorCallback)(OutputLog& log, std::string& message);
+
 	// OutputLog interface.
 	class OutputLog
 	{
@@ -35,11 +40,15 @@ namespace RCT3Debugging
 		unsigned int _errorCount;
 		std::stringstream _errorStream;
 
+		ErrorCallback _callback;
+
 		__forceinline std::string _currentDateTime();
 
 	public:
 
 		OutputLog();
+
+		OutputLog(ErrorCallback callback);
 
 		// * Assigns a std::ostream derived class to the OutputLog.
 		void AssignStream(std::ostream* outStream);

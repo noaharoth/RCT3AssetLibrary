@@ -31,7 +31,11 @@ __forceinline std::string OutputLog::_currentDateTime() {
 	return buf;
 }
 
-OutputLog::OutputLog() : _out(nullptr), _currentLine(0), _debugging(false), _errorCount(0)
+OutputLog::OutputLog() : _out(nullptr), _currentLine(0), _debugging(false), _errorCount(0), _callback(nullptr)
+{
+}
+
+OutputLog::OutputLog(ErrorCallback callback) : _out(nullptr), _currentLine(0), _debugging(false), _errorCount(0), _callback(callback)
 {
 }
 
@@ -75,6 +79,16 @@ void OutputLog::Error(std::string message)
 		(*_out) << _currentLine << "  " << _currentDateTime() << "<ERROR>:\t" << message << std::endl;
 	_stringStream << _currentLine << "  " << _currentDateTime() << "<ERROR>:\t" << message << std::endl;
 	_errorStream << "Fatal error " << _errorCount << ": " << message << std::endl;
+
+	if ((_errorCount - 1) == 0)
+	{
+		// First error, check to see if a callback was supplied and invoke it
+
+		if (_callback != nullptr)
+		{
+			_callback(*this, message);
+		}
+	}
 }
 
 void OutputLog::SaveToFile(std::string filename)
