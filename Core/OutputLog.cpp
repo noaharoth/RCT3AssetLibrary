@@ -31,17 +31,19 @@ __forceinline std::string OutputLog::_currentDateTime() {
 	return buf;
 }
 
-OutputLog::OutputLog() : _out(nullptr), _currentLine(0), _debugging(false), _errorCount(0), _callback(nullptr)
-{
-}
-
-OutputLog::OutputLog(ErrorCallback callback) : _out(nullptr), _currentLine(0), _debugging(false), _errorCount(0), _callback(callback)
+OutputLog::OutputLog() : _out(nullptr), _currentLine(0), _debugging(false), _errorCount(0), _callback(nullptr), _userData(nullptr)
 {
 }
 
 void OutputLog::AssignStream(std::ostream* outStream)
 {
 	_out = outStream;
+}
+
+void OutputLog::AssignCallback(ErrorCallback callback, void* userData)
+{
+	_callback = callback;
+	_userData = userData;
 }
 
 void OutputLog::Debug(std::string message)
