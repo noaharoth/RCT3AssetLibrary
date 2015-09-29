@@ -30,7 +30,7 @@
 namespace RCT3Asset
 {
 
-	extern void InitializeRCT3AssetLibrary(const char* _arg);
+	void InitializeRCT3AssetLibrary(const char* _arg);
 
 	class OvlFile
 	{

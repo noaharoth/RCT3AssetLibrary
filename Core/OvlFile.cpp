@@ -20,7 +20,7 @@
 
 using namespace RCT3Asset;
 
-void InitializeRCT3AssetLibrary(const char* _arg)
+void RCT3Asset::InitializeRCT3AssetLibrary(const char* _arg)
 {
 	Magick::InitializeMagick(_arg);
 }

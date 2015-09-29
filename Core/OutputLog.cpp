@@ -88,7 +88,7 @@ void OutputLog::Error(std::string message)
 
 		if (_callback != nullptr)
 		{
-			_callback(*this, message);
+			_callback(*this, message, _userData);
 		}
 	}
 }

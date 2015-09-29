@@ -73,7 +73,8 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.21\VisualMagick\lib;C:\Users\noaha\Documents\Coding\squish-1.11\lib\vs9</AdditionalLibraryDirectories>
-      <AdditionalDependencies>squishd.lib;X11.lib;Xext.lib;CORE_DB_bzlib_.lib;CORE_DB_coders_.lib;CORE_DB_filters_.lib;CORE_DB_jbig_.lib;CORE_DB_jp2_.lib;CORE_DB_jpeg_.lib;CORE_DB_lcms_.lib;CORE_DB_libxml_.lib;CORE_DB_magick_.lib;CORE_DB_Magick++_.lib;CORE_DB_png_.lib;CORE_DB_tiff_.lib;CORE_DB_ttf_.lib;CORE_DB_wand_.lib;CORE_DB_webp_.lib;CORE_DB_wmf_.lib;CORE_DB_xlib_.lib;CORE_DB_zlib_.lib</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
       <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
     </Lib>
   </ItemDefinitionGroup>
@@ -102,7 +103,8 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.21\VisualMagick\lib;C:\Users\noaha\Documents\Coding\squish-1.11\lib\vs9</AdditionalLibraryDirectories>
-      <AdditionalDependencies>squish.lib;X11.lib;Xext.lib;CORE_RL_bzlib_.lib;CORE_RL_coders_.lib;CORE_RL_filters_.lib;CORE_RL_jbig_.lib;CORE_RL_jp2_.lib;CORE_RL_jpeg_.lib;CORE_RL_lcms_.lib;CORE_RL_libxml_.lib;CORE_RL_magick_.lib;CORE_RL_Magick++_.lib;CORE_RL_png_.lib;CORE_RL_tiff_.lib;CORE_RL_ttf_.lib;CORE_RL_wand_.lib;CORE_RL_webp_.lib;CORE_RL_wmf_.lib;CORE_RL_xlib_.lib;CORE_RL_zlib_.lib</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
