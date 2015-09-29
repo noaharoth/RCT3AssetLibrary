@@ -89,7 +89,8 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>../Debug;../../../../Coding/ResIL-1.8.3/projects/msvc10/Debug/</AdditionalLibraryDirectories>
-      <AdditionalDependencies>R3AL_Debugging_d.lib;ILU.lib;IlmBase.lib;jpeg.lib;lcms.lib;libjasper.lib;libmng.lib;libPNG.lib;libTIFF.lib;OpenExr.lib;ResIL.lib;zlib.lib</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -116,7 +117,8 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>R3AL_Debugging.lib;ILU.lib;IlmBase.lib;jpeg.lib;lcms.lib;libjasper.lib;libmng.lib;libPNG.lib;libTIFF.lib;OpenExr.lib;ResIL.lib;zlib.lib</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
     <Lib>
       <AdditionalLibraryDirectories>../Release;../../../../Coding/ResIL-1.8.3/projects/msvc10/Release-msvcrt/</AdditionalLibraryDirectories>
