@@ -57,29 +57,28 @@ void OvlPointerTable::CreatePointerTable(FileSections(&sections)[2], RCT3Debuggi
 
 		unsigned int* actualData = *((unsigned int**)ptr);
 
-		if (actualData != nullptr)
-		{
-			unsigned int file = 0;
-			unsigned int dataLocation = Search(actualData, file, sections, log);
-
-			unsigned int dataLocationFile = file;
-
-			if (dataLocation == 0xFFFFFFFF)
-				dataLocation = 0;
-
-			*ptr = dataLocation;
-
-			unsigned int ptrLocation = Search(ptr, file, sections, log);
-			PointerTable[file].push_back(ptrLocation);
-
-			log.Debug("OvlPointerTable::CreatePointerTable(..): found ptr in file " + STR(file) + ", location " + STR(ptrLocation)
-				+ ", data found in file " + STR(dataLocationFile) + ", location " + STR(dataLocation));
-		}
-		else
+		if (actualData == nullptr)
 		{
 			log.Warning("OvlPointerTable::CreatePointerTable(..): Data pointed to is nonexistent! (ptr address = " +
 				STR((unsigned int)ptr) + ", " + "index = " + STR(rawPtrSize - Pointers.size()) + ")");
+			continue;
 		}
+
+		unsigned int file = 0;
+		unsigned int dataLocation = Search(actualData, file, sections, log);
+
+		unsigned int dataLocationFile = file;
+
+		if (dataLocation == 0xFFFFFFFF)
+			dataLocation = 0;
+
+		*ptr = dataLocation;
+
+		unsigned int ptrLocation = Search(ptr, file, sections, log);
+		PointerTable[file].push_back(ptrLocation);
+
+		log.Debug("OvlPointerTable::CreatePointerTable(..): found ptr in file " + STR(file) + ", location " + STR(ptrLocation)
+			+ ", data found in file " + STR(dataLocationFile) + ", location " + STR(dataLocation));
 	}
 
 	log.Debug("OvlPointerTable::Create(..): Final pointer count (common): " + STR(PointerTable[OvlType::Common].size()));
