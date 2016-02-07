@@ -44,14 +44,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <TargetName>RCT3AssetLibrary_d</TargetName>
-    <IncludePath>C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.21\Magick++\lib;C:\Users\noaha\Documents\Coding\squish-1.11;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\noaha\Documents\Coding\squish-1.11\lib\vs9;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Dependencies\GraphicsMagick-1.3.21\Magick++\lib;$(SolutionDir)\Dependencies\squish-1.11;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Dependencies\squish-1.11\lib\vs9;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <TargetName>RCT3AssetLibrary</TargetName>
-    <IncludePath>C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.21\Magick++\lib;C:\Users\noaha\Documents\Coding\squish-1.11;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\noaha\Documents\Coding\squish-1.11\lib\vs9;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Dependencies\GraphicsMagick-1.3.21\Magick++\lib;$(SolutionDir)\Dependencies\squish-1.11;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Dependencies\squish-1.11\lib\vs9;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -60,19 +60,19 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>R3AL_EXPORTING_DLL;_DEBUG;_CONSOLE;WIN32;_VISUALC_;NeedFunctionPrototypes;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.21;C:\Users\noaha\Documents\Coding\squish-1.11;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\xlib;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\lib;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\magick;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\demo;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\lib\Magick++;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\tests;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Dependencies\GraphicsMagick-1.3.21;$(SolutionDir)\Dependencies\squish-1.11;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\xlib;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++\lib;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\magick;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++\demo;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++\lib\Magick++;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++\tests;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Noah\Documents\Coding\squish-1.11\lib\vs9;C:\Users\Noah\Documents\Coding\GraphicsMagick-1.3.20\VisualMagick\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Dependencies\squish-1.11\lib\vs9;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\VisualMagick\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>/MACHINE:X86;CORE_DB_bzlib_.lib;CORE_DB_coders_.lib;CORE_DB_filters_.lib;CORE_DB_jbig_.lib;CORE_DB_jp2_.lib;CORE_DB_jpeg_.lib;CORE_DB_lcms_.lib;CORE_DB_libxml_.lib;CORE_DB_magick_.lib;CORE_DB_Magick++_.lib;CORE_DB_png_.lib;CORE_DB_tiff_.lib;CORE_DB_ttf_.lib;CORE_DB_wand_.lib;CORE_DB_webp_.lib;CORE_DB_xlib_.lib;CORE_DB_zlib_.lib;CORE_DB_wmf_.lib;kernel32.lib;user32.lib;gdi32.lib;odbc32.lib;odbccp32.lib;ole32.lib;oleaut32.lib;winmm.lib;wsock32.lib;advapi32.lib;squishd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.21\VisualMagick\lib;C:\Users\noaha\Documents\Coding\squish-1.11\lib\vs9</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Dependencies\GraphicsMagick-1.3.21\VisualMagick\lib;$(SolutionDir)\Dependencies\squish-1.11\lib\vs9</AdditionalLibraryDirectories>
       <AdditionalDependencies>
       </AdditionalDependencies>
       <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
@@ -88,7 +88,7 @@
       <PreprocessorDefinitions>R3AL_EXPORTING_DLL;NDEBUG;_CONSOLE;WIN32;_VISUALC_;NeedFunctionPrototypes;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.21;C:\Users\noaha\Documents\Coding\squish-1.11;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\xlib;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\lib;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\magick;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\demo;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\lib\Magick++;C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.20\Magick++\tests;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Dependencies\GraphicsMagick-1.3.21;$(SolutionDir)\Dependencies\squish-1.11;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\xlib;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++\lib;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\magick;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++\demo;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++\lib\Magick++;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++\tests;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -99,10 +99,10 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>/MACHINE:X86;CORE_RL_coders_.lib;CORE_RL_filters_.lib;CORE_RL_jbig_.lib;CORE_RL_jp2_.lib;CORE_RL_jpeg_.lib;CORE_RL_lcms_.lib;CORE_RL_libxml_.lib;CORE_RL_magick_.lib;CORE_RL_Magick++_.lib;CORE_RL_png_.lib;CORE_RL_tiff_.lib;CORE_RL_ttf_.lib;CORE_RL_wand_.lib;CORE_RL_webp_.lib;CORE_RL_xlib_.lib;CORE_RL_zlib_.lib;CORE_RL_wmf_.lib;CORE_RL_bzlib_.lib;kernel32.lib;user32.lib;gdi32.lib;odbc32.lib;odbccp32.lib;ole32.lib;oleaut32.lib;winmm.lib;wsock32.lib;advapi32.lib;squish.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\Noah\Documents\Coding\squish-1.11\lib\vs9;C:\Users\Noah\Documents\Coding\GraphicsMagick-1.3.20\VisualMagick\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Dependencies\squish-1.11\lib\vs9;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\VisualMagick\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>C:\Users\noaha\Documents\Coding\GraphicsMagick-1.3.21\VisualMagick\lib;C:\Users\noaha\Documents\Coding\squish-1.11\lib\vs9</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Dependencies\GraphicsMagick-1.3.21\VisualMagick\lib;$(SolutionDir)\Dependencies\squish-1.11\lib\vs9</AdditionalLibraryDirectories>
       <AdditionalDependencies>
       </AdditionalDependencies>
     </Lib>
