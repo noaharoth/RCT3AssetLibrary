@@ -175,6 +175,10 @@ UpgradeLog*.htm
 *.mdf
 *.ldf
 
+# Visual C++ Database Files
+*.VB
+*.OpenVB
+
 # Business Intelligence projects
 *.rdl.data
 *.bim.layout
@@ -187,3 +191,9 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+*.db
+*.opendb
+*.db-shm
+*.db-wal
+*.json
+*.sqlite
