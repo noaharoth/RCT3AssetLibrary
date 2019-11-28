@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -9,30 +9,120 @@
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Common\Private\stdafx.cpp" />
+    <ClCompile Include="Debugging\Private\OutputLog.cpp" />
+    <ClCompile Include="Memory\Private\FileSections.cpp" />
+    <ClCompile Include="Serialize\Private\OvlDataInfoTable.cpp" />
+    <ClCompile Include="Serialize\Private\OvlFile.cpp" />
+    <ClCompile Include="Serialize\Private\OvlIdentifierTable.cpp" />
+    <ClCompile Include="Serialize\Private\OvlPointerTable.cpp" />
+    <ClCompile Include="Serialize\Private\OvlReferenceTable.cpp" />
+    <ClCompile Include="Serialize\Private\OvlStringTable.cpp" />
+    <ClCompile Include="Structure\Private\FlexiTexture.cpp" />
+    <ClCompile Include="Structure\Private\GuiSkinItem.cpp" />
+    <ClCompile Include="Structure\Private\ManifoldMesh.cpp" />
+    <ClCompile Include="Structure\Private\Path.cpp" />
+    <ClCompile Include="Structure\Private\Queue.cpp" />
+    <ClCompile Include="Structure\Private\SceneryItem.cpp" />
+    <ClCompile Include="Structure\Private\TextString.cpp" />
+    <ClCompile Include="Structure\Private\Texture.cpp" />
+    <ClCompile Include="Structure\Private\TextureStyle.cpp" />
+    <ClCompile Include="Texture\Private\FlicManager.cpp" />
+    <ClCompile Include="Texture\Private\FtxImage.cpp" />
+    <ClCompile Include="Texture\Private\OvlImage.cpp" />
+    <ClCompile Include="Texture\Private\TexImage.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Common\Public\stdafx.hpp" />
+    <ClInclude Include="Common\Public\targetver.h" />
+    <ClInclude Include="Debugging\Public\OutputLog.hpp" />
+    <ClInclude Include="Memory\Public\FileSections.hpp" />
+    <ClInclude Include="Mesh\Public\OvlMesh.hpp" />
+    <ClInclude Include="Mesh\Public\Vertex.hpp" />
+    <ClInclude Include="Serialize\Public\OvlDataInfoTable.hpp" />
+    <ClInclude Include="Serialize\Public\OvlFile.hpp" />
+    <ClInclude Include="Serialize\Public\OvlIdentifierTable.hpp" />
+    <ClInclude Include="Serialize\Public\OvlPointerTable.hpp" />
+    <ClInclude Include="Serialize\Public\OvlRaw.hpp" />
+    <ClInclude Include="Serialize\Public\OvlReferenceTable.hpp" />
+    <ClInclude Include="Serialize\Public\OvlStringTable.hpp" />
+    <ClInclude Include="Structure\Public\FlexiTexture.hpp" />
+    <ClInclude Include="Structure\Public\FlexiTextureRaw.hpp" />
+    <ClInclude Include="Structure\Public\GuiSkinItem.hpp" />
+    <ClInclude Include="Structure\Public\GuiSkinItemRaw.hpp" />
+    <ClInclude Include="Structure\Public\ManifoldMesh.hpp" />
+    <ClInclude Include="Structure\Public\ManifoldMeshRaw.hpp" />
+    <ClInclude Include="Structure\Public\Path.hpp" />
+    <ClInclude Include="Structure\Public\PathRaw.hpp" />
+    <ClInclude Include="Structure\Public\Queue.hpp" />
+    <ClInclude Include="Structure\Public\QueueRaw.hpp" />
+    <ClInclude Include="Structure\Public\SceneryItem.hpp" />
+    <ClInclude Include="Structure\Public\SceneryItemRaw.hpp" />
+    <ClInclude Include="Structure\Public\StaticShapeRaw.hpp" />
+    <ClInclude Include="Structure\Public\StructRef.hpp" />
+    <ClInclude Include="Structure\Public\StructureCollection.hpp" />
+    <ClInclude Include="Structure\Public\TextString.hpp" />
+    <ClInclude Include="Structure\Public\Texture.hpp" />
+    <ClInclude Include="Structure\Public\TextureRaw.hpp" />
+    <ClInclude Include="Structure\Public\TextureStyle.hpp" />
+    <ClInclude Include="Texture\Public\FlicManager.hpp" />
+    <ClInclude Include="Texture\Public\FlicRaw.hpp" />
+    <ClInclude Include="Texture\Public\FtxImage.hpp" />
+    <ClInclude Include="Texture\Public\OvlImage.hpp" />
+    <ClInclude Include="Texture\Public\TexImage.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{9143D474-E45E-4586-B967-8EEB619893E7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Core</RootNamespace>
-    <ProjectName>Core</ProjectName>
-    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <RootNamespace>RCT3Asset</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -40,139 +130,105 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>RCT3AssetLibrary_d</TargetName>
-    <IncludePath>$(SolutionDir)\Dependencies\GraphicsMagick-1.3.21\Magick++\lib;$(SolutionDir)\Dependencies\squish-1.11;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\Dependencies\squish-1.11\lib\vs9;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)\Common\Public;$(ProjectDir)\Debugging\Public;$(ProjectDir)\Memory\Public;$(ProjectDir)\Mesh\Public;$(ProjectDir)\Serialize\Public;$(ProjectDir)\Structure\Public;$(ProjectDir)\Texture\Public;</IncludePath>
+    <SourcePath>D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Texture\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Structure\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Serialize\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Mesh\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Memory\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Debugging\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Common\Private;$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)\Common\Public;$(ProjectDir)\Debugging\Public;$(ProjectDir)\Memory\Public;$(ProjectDir)\Mesh\Public;$(ProjectDir)\Serialize\Public;$(ProjectDir)\Structure\Public;$(ProjectDir)\Texture\Public;</IncludePath>
+    <SourcePath>D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Texture\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Structure\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Serialize\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Mesh\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Memory\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Debugging\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Common\Private;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>RCT3AssetLibrary</TargetName>
-    <IncludePath>$(SolutionDir)\Dependencies\GraphicsMagick-1.3.21\Magick++\lib;$(SolutionDir)\Dependencies\squish-1.11;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\Dependencies\squish-1.11\lib\vs9;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)\Common\Public;$(ProjectDir)\Debugging\Public;$(ProjectDir)\Memory\Public;$(ProjectDir)\Mesh\Public;$(ProjectDir)\Serialize\Public;$(ProjectDir)\Structure\Public;$(ProjectDir)\Texture\Public;</IncludePath>
+    <SourcePath>D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Texture\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Structure\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Serialize\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Mesh\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Memory\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Debugging\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Common\Private;$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)\Common\Public;$(ProjectDir)\Debugging\Public;$(ProjectDir)\Memory\Public;$(ProjectDir)\Mesh\Public;$(ProjectDir)\Serialize\Public;$(ProjectDir)\Structure\Public;$(ProjectDir)\Texture\Public;</IncludePath>
+    <SourcePath>D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Texture\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Structure\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Serialize\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Mesh\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Memory\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Debugging\Private;D:\Users\Noah\Documents\Development\Libraries\RCT3AssetLibrary\Core\Common\Private;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>R3AL_EXPORTING_DLL;_DEBUG;_CONSOLE;WIN32;_VISUALC_;NeedFunctionPrototypes;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Dependencies\GraphicsMagick-1.3.21;$(SolutionDir)\Dependencies\squish-1.11;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\xlib;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++\lib;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\magick;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++\demo;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++\lib\Magick++;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++\tests;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\Dependencies\squish-1.11\lib\vs9;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\VisualMagick\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>/MACHINE:X86;CORE_DB_bzlib_.lib;CORE_DB_coders_.lib;CORE_DB_filters_.lib;CORE_DB_jbig_.lib;CORE_DB_jp2_.lib;CORE_DB_jpeg_.lib;CORE_DB_lcms_.lib;CORE_DB_libxml_.lib;CORE_DB_magick_.lib;CORE_DB_Magick++_.lib;CORE_DB_png_.lib;CORE_DB_tiff_.lib;CORE_DB_ttf_.lib;CORE_DB_wand_.lib;CORE_DB_webp_.lib;CORE_DB_xlib_.lib;CORE_DB_zlib_.lib;CORE_DB_wmf_.lib;kernel32.lib;user32.lib;gdi32.lib;odbc32.lib;odbccp32.lib;ole32.lib;oleaut32.lib;winmm.lib;wsock32.lib;advapi32.lib;squishd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions>
     </Link>
-    <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)\Dependencies\GraphicsMagick-1.3.21\VisualMagick\lib;$(SolutionDir)\Dependencies\squish-1.11\lib\vs9</AdditionalLibraryDirectories>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
-      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
-    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>false</IntrinsicFunctions>
-      <PreprocessorDefinitions>R3AL_EXPORTING_DLL;NDEBUG;_CONSOLE;WIN32;_VISUALC_;NeedFunctionPrototypes;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <SDLCheck>false</SDLCheck>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Dependencies\GraphicsMagick-1.3.21;$(SolutionDir)\Dependencies\squish-1.11;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\xlib;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++\lib;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\magick;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++\demo;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++\lib\Magick++;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\Magick++\tests;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
-      <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>/MACHINE:X86;CORE_RL_coders_.lib;CORE_RL_filters_.lib;CORE_RL_jbig_.lib;CORE_RL_jp2_.lib;CORE_RL_jpeg_.lib;CORE_RL_lcms_.lib;CORE_RL_libxml_.lib;CORE_RL_magick_.lib;CORE_RL_Magick++_.lib;CORE_RL_png_.lib;CORE_RL_tiff_.lib;CORE_RL_ttf_.lib;CORE_RL_wand_.lib;CORE_RL_webp_.lib;CORE_RL_xlib_.lib;CORE_RL_zlib_.lib;CORE_RL_wmf_.lib;CORE_RL_bzlib_.lib;kernel32.lib;user32.lib;gdi32.lib;odbc32.lib;odbccp32.lib;ole32.lib;oleaut32.lib;winmm.lib;wsock32.lib;advapi32.lib;squish.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)\Dependencies\squish-1.11\lib\vs9;$(SolutionDir)\Dependencies\GraphicsMagick-1.3.20\VisualMagick\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)\Dependencies\GraphicsMagick-1.3.21\VisualMagick\lib;$(SolutionDir)\Dependencies\squish-1.11\lib\vs9</AdditionalLibraryDirectories>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
-    </Lib>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="FileSections.hpp" />
-    <ClInclude Include="FlexiTexture.hpp" />
-    <ClInclude Include="FlexiTextureRaw.hpp" />
-    <ClInclude Include="FlicManager.hpp" />
-    <ClInclude Include="FlicRaw.hpp" />
-    <ClInclude Include="FtxImage.hpp" />
-    <ClInclude Include="GuiSkinItem.hpp" />
-    <ClInclude Include="GuiSkinItemRaw.hpp" />
-    <ClInclude Include="ManifoldMesh.hpp" />
-    <ClInclude Include="ManifoldMeshRaw.hpp" />
-    <ClInclude Include="OutputLog.hpp" />
-    <ClInclude Include="OvlDataInfoTable.hpp" />
-    <ClInclude Include="OvlFile.hpp" />
-    <ClInclude Include="OvlIdentifierTable.hpp" />
-    <ClInclude Include="OvlImage.hpp" />
-    <ClInclude Include="OvlMesh.hpp" />
-    <ClInclude Include="OvlPointerTable.hpp" />
-    <ClInclude Include="OvlRaw.hpp" />
-    <ClInclude Include="OvlReferenceTable.hpp" />
-    <ClInclude Include="OvlStringTable.hpp" />
-    <ClInclude Include="Path.hpp" />
-    <ClInclude Include="PathRaw.hpp" />
-    <ClInclude Include="Queue.hpp" />
-    <ClInclude Include="QueueRaw.hpp" />
-    <ClInclude Include="SceneryItem.hpp" />
-    <ClInclude Include="SceneryItemRaw.hpp" />
-    <ClInclude Include="StaticShapeRaw.hpp" />
-    <ClInclude Include="stdafx.hpp" />
-    <ClInclude Include="StructRef.hpp" />
-    <ClInclude Include="StructureCollection.hpp" />
-    <ClInclude Include="targetver.h" />
-    <ClInclude Include="TexImage.hpp" />
-    <ClInclude Include="TextString.hpp" />
-    <ClInclude Include="Texture.hpp" />
-    <ClInclude Include="TextureRaw.hpp" />
-    <ClInclude Include="TextureStyle.hpp" />
-    <ClInclude Include="Vertex.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="FileSections.cpp" />
-    <ClCompile Include="FlexiTexture.cpp" />
-    <ClCompile Include="FlicManager.cpp" />
-    <ClCompile Include="FtxImage.cpp" />
-    <ClCompile Include="GuiSkinItem.cpp" />
-    <ClCompile Include="ManifoldMesh.cpp" />
-    <ClCompile Include="OutputLog.cpp" />
-    <ClCompile Include="OvlDataInfoTable.cpp" />
-    <ClCompile Include="OvlFile.cpp" />
-    <ClCompile Include="OvlIdentifierTable.cpp" />
-    <ClCompile Include="OvlImage.cpp" />
-    <ClCompile Include="OvlPointerTable.cpp" />
-    <ClCompile Include="OvlReferenceTable.cpp" />
-    <ClCompile Include="OvlStringTable.cpp" />
-    <ClCompile Include="Path.cpp" />
-    <ClCompile Include="Queue.cpp" />
-    <ClCompile Include="SceneryItem.cpp" />
-    <ClCompile Include="TexImage.cpp" />
-    <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="TextureStyle.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
-    <ClCompile Include="TextString.cpp" />
-  </ItemGroup>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

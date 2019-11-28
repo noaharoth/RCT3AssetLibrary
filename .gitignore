@@ -197,3 +197,5 @@ ModelManifest.xml
 *.db-wal
 *.json
 *.sqlite
+*.filters
+/.vs/RCT3AssetLibrary
